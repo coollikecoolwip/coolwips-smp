@@ -45,8 +45,9 @@
       handle: '@greenreaperslayer',
       image: 'assets/staff/greenreaper.webp',
       alt: "GreenReaperSlayer's Discord avatar",
-      bio: "Family lore: His dad is a celebrity in the furry community, his mom makes a living selling doors to homeless people, and his sisters somehow earn Fortnite V-Bucks by getting homosexual content creators to craft wooden hoes.",
-      story: "Also known as Ryan, WiFi, and Right Hand, GreenReaperSlayer somehow ended up becoming a Junior Administrator on CoolWips SMP. His official role is Jr Admin; his unofficial role is continuing the family tradition of questionable business decisions."
+      nickname: "Also known as Ryan, WiFi, and Right Hand.",
+      bio: "He tries to rizz up girls on Roblox with promises of farts and sweet dreams. He also can’t say “hard.” Somehow, that’s still his entire flirting strategy.",
+      story: "Family lore: His dad is a celebrity in the furry community, his mom makes a living selling doors to homeless people, and his sisters somehow earn Fortnite V-Bucks by getting homosexual content creators to craft wooden hoes."
     },
     sparky: {
       name: 'Sparky',
@@ -62,12 +63,13 @@
   const name = document.getElementById('founder-dialog-name');
   const role = document.getElementById('founder-dialog-role');
   const handle = document.getElementById('founder-dialog-handle');
+  const nicknameEl = document.getElementById('founder-dialog-nickname');
   const photo = document.getElementById('founder-dialog-photo');
   const bio = document.getElementById('founder-dialog-bio');
   const story = document.getElementById('founder-dialog-story');
   const other = document.getElementById('founder-dialog-other');
   const close = dialog.querySelector('.founder-dialog-close');
-  if (![name,role,handle,photo,bio,story,other,close].every(Boolean)) return;
+  if (![name,role,handle,nicknameEl,photo,bio,story,other,close].every(Boolean)) return;
 
   let lastTrigger = null;
   const show = (id, trigger) => {
@@ -78,6 +80,8 @@
     role.textContent = data.role;
     handle.textContent = data.handle || '';
     handle.hidden = !data.handle;
+    nicknameEl.textContent = data.nickname || '';
+    nicknameEl.hidden = !data.nickname;
     photo.src = data.image;
     photo.alt = data.alt;
     bio.textContent = data.bio;

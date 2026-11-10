@@ -391,3 +391,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .founder-profile-dialog[data-person="orangemike"] .founder-dialog-photo-frame{border-color:#ad8cf4a3}
 .founder-profile-dialog[data-person="orangemike"] .founder-dialog-story{line-height:1.85}
 @media(max-width:700px){.founder-profile-dialog[data-person="orangemike"] .founder-dialog-story,.founder-profile-dialog[data-person="kaitlynn"] .founder-dialog-story{font-size:13px;line-height:1.68}}
+
+/* GreenReaperSlayer: nickname, Roblox humor, then family at the bottom */
+.staff-card .staff-roast{margin-top:4px;margin-bottom:13px;color:#dbc4e8}
+.staff-card .staff-family{margin-bottom:16px;padding-top:13px;border-top:1px solid #b478eb46;color:#bea7cd}
+.founder-dialog-nickname{font-size:13px;color:#c8a6e2;line-height:1.65;margin:0 0 12px;font-weight:650}
+.founder-dialog-nickname[hidden]{display:none!important}
+.founder-profile-dialog[data-person="greenreaper"] .founder-dialog-story{border-top:1px solid #b176e04d;padding-top:15px;margin-top:16px}
+@media(max-width:700px){.staff-card .staff-family{padding-top:11px}.founder-dialog-nickname{font-size:12px}}
