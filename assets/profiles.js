@@ -45,8 +45,8 @@
       handle: '@greenreaperslayer',
       image: 'assets/staff/greenreaper.webp',
       alt: "GreenReaperSlayer's Discord avatar",
-      bio: 'A man of many names — also known as “Ryan WiFi” and “Right Hand”.',
-      story: 'GreenReaperSlayer is a Jr Admin on CoolWips SMP. His staff bio also says his dad is famous in the furry community.'
+      bio: "His dad is a celebrity in the furry community, and his mom makes a living selling doors to homeless people.",
+      story: "Also known as Ryan, WiFi, and Right Hand, GreenReaperSlayer somehow ended up becoming a Junior Administrator on CoolWips SMP. Family legacy: furry fame and selling doors to people without houses. Official role: Jr Admin. Unofficial role: continuing the family tradition of questionable business decisions."
     },
     sparky: {
       name: 'Sparky',
