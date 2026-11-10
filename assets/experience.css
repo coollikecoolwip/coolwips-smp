@@ -399,3 +399,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .founder-dialog-nickname[hidden]{display:none!important}
 .founder-profile-dialog[data-person="greenreaper"] .founder-dialog-story{border-top:1px solid #b176e04d;padding-top:15px;margin-top:16px}
 @media(max-width:700px){.staff-card .staff-family{padding-top:11px}.founder-dialog-nickname{font-size:12px}}
+
+
+/* Polished team biography rhythm, card hierarchy, and readable paragraphs */
+.staff-card .staff-nickname{line-height:1.6}
+.staff-card .staff-bio{line-height:1.72;letter-spacing:.005em}
+.staff-card .staff-bio strong{color:#e6c6f7;font-weight:850}
+.staff-card .staff-roast{color:#e1cce9}
+.staff-card .staff-family{color:#bda8cb;border-top-color:#b87ae04d}
+.founder-dialog-bio{line-height:1.65}
+.founder-dialog-story{line-height:1.84}
+@media(max-width:600px){.staff-card .staff-bio{font-size:13px;line-height:1.7}.founder-dialog-story{line-height:1.75}}
