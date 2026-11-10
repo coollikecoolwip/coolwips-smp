@@ -45,8 +45,8 @@
       handle: '@greenreaperslayer',
       image: 'assets/staff/greenreaper.webp',
       alt: "GreenReaperSlayer's Discord avatar",
-      bio: "His dad is a celebrity in the furry community, and his mom makes a living selling doors to homeless people.",
-      story: "Also known as Ryan, WiFi, and Right Hand, GreenReaperSlayer somehow ended up becoming a Junior Administrator on CoolWips SMP. Family legacy: furry fame and selling doors to people without houses. Fictional roast: his sisters somehow earn Fortnite V-Bucks by getting homosexual content creators to craft wooden hoes. Official role: Jr Admin. Unofficial role: continuing the family tradition of questionable business decisions."
+      bio: "Family lore: His dad is a celebrity in the furry community, his mom makes a living selling doors to homeless people, and his sisters somehow earn Fortnite V-Bucks by getting homosexual content creators to craft wooden hoes.",
+      story: "Also known as Ryan, WiFi, and Right Hand, GreenReaperSlayer somehow ended up becoming a Junior Administrator on CoolWips SMP. His official role is Jr Admin; his unofficial role is continuing the family tradition of questionable business decisions."
     },
     sparky: {
       name: 'Sparky',
