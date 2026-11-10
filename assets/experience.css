@@ -379,3 +379,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 @media(prefers-reduced-motion:reduce){
   .staff-open-caption{transition:none!important}
 }
+
+/* More expressive recognition for Kaitlynn and deeper Administrator bio */
+.founder-kaitlynn{background:radial-gradient(ellipse at 92% 5%,#d568b224,transparent 63%),linear-gradient(125deg,#321b39,#160d22 73%);border-color:#e5a1e385;box-shadow:0 18px 45px #b650a322,inset 0 1px #ffd7f817}
+.founder-kaitlynn .founder-status-dot{box-shadow:0 0 0 4px #eaa1e41b,0 0 16px #ee9ee7a0}
+.founder-kaitlynn .founder-content h3{background:linear-gradient(115deg,#fff7ff,#f5b8e9 72%,#d18bdc);color:transparent;-webkit-background-clip:text;background-clip:text}
+.founder-kaitlynn .founder-signature{color:#fac6f1;letter-spacing:.115em}
+.founder-profile-dialog[data-person="kaitlynn"] .founder-dialog-bio{color:#f7d2f1}
+.founder-profile-dialog[data-person="kaitlynn"] .founder-dialog-ambient{background:radial-gradient(ellipse 75% 78% at 0 0,#de74c930,transparent 82%)}
+.founder-profile-dialog[data-person="orangemike"] .founder-dialog-role{color:#d6b1ff}
+.founder-profile-dialog[data-person="orangemike"] .founder-dialog-photo-frame{border-color:#ad8cf4a3}
+.founder-profile-dialog[data-person="orangemike"] .founder-dialog-story{line-height:1.85}
+@media(max-width:700px){.founder-profile-dialog[data-person="orangemike"] .founder-dialog-story,.founder-profile-dialog[data-person="kaitlynn"] .founder-dialog-story{font-size:13px;line-height:1.68}}

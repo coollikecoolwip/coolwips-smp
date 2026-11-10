@@ -18,8 +18,8 @@
       role: 'SPECIAL RECOGNITION',
       image: 'assets/featured/kaitlynn.webp',
       alt: 'Silhouette making a heart against the sunset',
-      bio: 'The woman that made all this possible.',
-      story: 'A personal dedication from CoolWip, recognizing Kaitlynn and her importance to the story behind CoolWips SMP.'
+      bio: "The woman that made all this possible. The heart behind the story, and someone this server will always have a place for.",
+      story: "Some people are part of a server. Others are part of the reason it means so much in the first place. This tribute is CoolWip’s way of giving Kaitlynn a place of her own in the world he built: not as another staff rank, but as someone whose importance can’t be measured by a title. Every base, every rivalry, every new player becomes another chapter in a story that would not feel the same without her. Through all the work behind CoolWips SMP, there is one message he wants everyone to see: Kaitlynn is the woman that made all this possible."
     },
     orangemike: {
       name: 'Orangemike',
@@ -27,8 +27,8 @@
       handle: '@4dbm',
       image: 'assets/staff/orangemike.webp',
       alt: "Orangemike's Discord avatar",
-      bio: 'An administrator helping oversee CoolWips SMP and support its community.',
-      story: 'Orangemike is listed as an Administrator in the CoolWips SMP staff team.'
+      bio: "As one of the server’s Administrators, Orangemike is part of the leadership team players can turn to for guidance, community concerns, and keeping CoolWips SMP organized.",
+      story: "Every anarchy-style survival server needs people behind the scenes who can separate the chaos of gameplay from the responsibilities of running a community. Orangemike holds an Administrator role on CoolWips SMP, helping provide that structure. His position represents a point of contact for staff matters, player questions, and concerns that go beyond the normal raids and rivalries of the game. While the world itself is full of competition, the goal of the staff team is to keep the experience welcoming, clear, and worth returning to."
     },
     duck: {
       name: 'duck',
