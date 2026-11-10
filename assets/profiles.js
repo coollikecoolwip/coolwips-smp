@@ -27,8 +27,8 @@
       handle: '@4dbm',
       image: 'assets/staff/orangemike.webp',
       alt: "Orangemike's Discord avatar",
-      bio: "As one of the server’s Administrators, Orangemike is part of the leadership team players can turn to for guidance, community concerns, and keeping CoolWips SMP organized.",
-      story: "Every anarchy-style survival server needs people behind the scenes who can separate the chaos of gameplay from the responsibilities of running a community. Orangemike holds an Administrator role on CoolWips SMP, helping provide that structure. His position represents a point of contact for staff matters, player questions, and concerns that go beyond the normal raids and rivalries of the game. While the world itself is full of competition, the goal of the staff team is to keep the experience welcoming, clear, and worth returning to."
+      bio: "Orangemike has spent countless hours moderating CoolWips SMP, helping players, supporting the community, and keeping the server organized.",
+      story: "Every anarchy-style survival server needs people behind the scenes who can separate the chaos of gameplay from the responsibilities of running a community. Orangemike has spent countless hours moderating CoolWips SMP. As an Administrator, he helps provide that structure. His position represents a point of contact for staff matters, player questions, and concerns that go beyond the normal raids and rivalries of the game. While the world itself is full of competition, the goal of the staff team is to keep the experience welcoming, clear, and worth returning to."
     },
     duck: {
       name: 'duck',
