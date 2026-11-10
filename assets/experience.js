@@ -60,6 +60,29 @@
      });
    });
  }
+
+ // Close mobile navigation on outside tap, Escape, or returning to desktop.
+ const menu = doc.getElementById('menuButton');
+ const menuLinks = doc.getElementById('navLinks');
+ if(menu && menuLinks) {
+   const hideMenu = () => {
+     menuLinks.classList.remove('open');
+     menu.setAttribute('aria-expanded', 'false');
+     menu.setAttribute('aria-label','Open navigation');
+   };
+   doc.addEventListener('pointerdown', event => {
+     if(menuLinks.classList.contains('open') &&
+        !menuLinks.contains(event.target) && !menu.contains(event.target)) hideMenu();
+   },{passive:true});
+   doc.addEventListener('keydown', event => {
+     if(event.key === 'Escape' && menuLinks.classList.contains('open')) {
+       hideMenu();
+       menu.focus();
+     }
+   });
+   const desktop = window.matchMedia('(min-width: 1101px)');
+   desktop.addEventListener?.('change', event => {if(event.matches)hideMenu()});
+ }
  const navLinks=[...doc.querySelectorAll('#navLinks a[href^="#"]')];
  if('IntersectionObserver' in window){
    const tracked=navLinks.map(a=>doc.getElementById(a.hash.slice(1))).filter(Boolean);
