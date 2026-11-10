@@ -19,7 +19,7 @@
  addEventListener('resize',schedule,{passive:true});
  drawScroll();
  if(up)up.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced.matches?'auto':'smooth'}));
- const items=[...doc.querySelectorAll('.section-head,.feature,.staff-card,.join-card,.rule-group,.faq details,.help-card,.help-alert,.console-ip-panel,.help-troubleshoot,.void-manifesto .wrap,.closing .wrap')];
+ const items=[...doc.querySelectorAll('.section-head,.feature,.staff-card,.founder-card,.join-card,.rule-group,.faq details,.help-card,.help-alert,.console-ip-panel,.help-troubleshoot,.void-manifesto .wrap,.closing .wrap')];
  if(!reduced.matches&&'IntersectionObserver' in window){
    const observer=new IntersectionObserver((entries,obs)=>{
      for(const entry of entries){
@@ -34,7 +34,7 @@
    reduced.addEventListener?.('change',ensureVisible);
  }
  if(!reduced.matches&&!coarse.matches){
-   doc.querySelectorAll('.feature,.staff-card,.help-card').forEach(card=>{
+   doc.querySelectorAll('.feature,.staff-card,.founder-card,.help-card').forEach(card=>{
      let frame=0,x=0,y=0;
      card.addEventListener('pointermove',e=>{
        x=e.clientX;y=e.clientY;
