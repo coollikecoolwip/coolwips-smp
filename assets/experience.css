@@ -174,3 +174,24 @@ body{background:#080510;color:#faf6ff;-webkit-font-smoothing:antialiased;isolati
 .faq-empty p{font-size:13px;color:#b4a3c3;margin:0}
 @media(max-width:880px){#faq .faq{grid-template-columns:1fr;gap:30px}.faq-intro{position:static}.faq-search{max-width:480px}.faq-answers{gap:22px}}
 @media(max-width:600px){.faq-group-heading{flex-wrap:wrap}.faq-group-total{font-size:9px}#faq .faq-question{padding:0 10px}}
+
+/* Two official Discord reporting channels */
+.reports-section{position:relative;isolation:isolate;overflow:hidden;padding:92px 0;background:radial-gradient(ellipse 52% 70% at 75% 0,#3a195b57,transparent 84%),linear-gradient(155deg,#0d0717,#150a22 65%,#0e0716);border-top:1px solid #b87bf32a;border-bottom:1px solid #b87bf32b;scroll-margin-top:85px}
+.reports-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.report-card{background:linear-gradient(145deg,#241335,#10091d);border:1px solid #b47bea69;box-shadow:0 18px 40px #0003;border-radius:17px;padding:31px;display:flex;flex-direction:column;min-width:0;position:relative;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .25s,box-shadow .3s}
+.report-card::before{content:"";pointer-events:none;position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at 15% 0,#b475ff1f,transparent 70%);opacity:.7;transition:opacity .3s}
+.report-card:hover{transform:translateY(-6px);border-color:#d7a1ffbc;box-shadow:0 23px 54px #60239346}
+.report-card:hover::before{opacity:1}
+.report-card>*{position:relative}
+.report-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.report-symbol{font-size:30px;width:54px;height:54px;border:1px solid #b785e68a;border-radius:12px;display:grid;place-items:center;background:#9d54e420;color:#ebc9ff}
+.report-index{font:800 11px ui-monospace,Consolas,monospace;color:#b899d2;letter-spacing:.14em}
+.report-card h3{font-size:clamp(24px,2.7vw,31px);letter-spacing:-.055em;color:#f5e9ff;margin:0 0 12px}
+.report-card p{font-size:14px;line-height:1.8;color:#c8b7d9;margin:0 0 27px;flex:1}
+.report-action{align-self:start;display:inline-flex;align-items:center;gap:11px;justify-content:center}
+.report-action span{font-size:19px;line-height:1}
+.reports-tip{display:flex;gap:14px;align-items:flex-start;border-radius:10px;border:1px solid #b87bef53;background:#8d4db414;padding:17px 20px;margin-top:21px}
+.reports-tip span{flex:none;width:24px;height:24px;border-radius:50%;border:1px solid #bb8bdd;color:#e4baff;display:grid;place-items:center;font-size:13px;font-weight:900}
+.reports-tip p{font-size:12px;color:#c7b8d5;line-height:1.72;margin:0}
+@media(max-width:700px){.reports-grid{grid-template-columns:1fr}.report-card{padding:24px}.reports-section{padding:70px 0}.report-action{width:100%}}
+@media(prefers-reduced-motion:reduce){.report-card,.report-card::before{transition:none!important}}
