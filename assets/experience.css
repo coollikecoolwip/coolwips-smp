@@ -137,3 +137,40 @@ body{background:#080510;color:#faf6ff;-webkit-font-smoothing:antialiased;isolati
 .staff-section{padding-top:94px}
 .copy-small.copied{background:#b8ffe9;color:#072822}
 @media(max-width:600px){.staff-section{padding-top:67px}}
+
+/* Searchable FAQ help center */
+#faq{scroll-margin-top:84px}
+#faq .faq{align-items:start;grid-template-columns:minmax(240px,.74fr) minmax(0,1.3fr);gap:clamp(28px,5vw,75px)}
+.faq-intro{position:sticky;top:116px;align-self:start}
+.faq-search{margin:31px 0 15px}
+.faq-search label{display:block;color:#d3a3fc;font-size:11px;font-weight:850;letter-spacing:.13em;margin-bottom:10px}
+.faq-search-field{display:flex;gap:11px;align-items:center;background:#170d25;border:1px solid #bd81ef65;border-radius:11px;padding:12px 14px;transition:border-color .2s,box-shadow .2s}
+.faq-search-field:focus-within{border-color:#d59dff;box-shadow:0 0 0 3px #bb70ef1e}
+.faq-search-field svg{color:#ba8edd;flex:none}
+.faq-search-field input{font:inherit;min-width:0;flex:1;border:0;outline:0;color:#f7e9ff;background:transparent;font-size:14px}
+.faq-search-field input::placeholder{color:#967da9}
+.faq-results{color:#a895b8;font-size:12px;margin:10px 0 0}
+.faq-support-link{display:inline-flex;align-items:center;gap:8px;color:#ddafff;font-size:13px;font-weight:800;line-height:1.6}
+.faq-support-link:hover{color:#fff}
+.faq-support-link span{font-size:17px}
+.faq-answers{min-width:0;display:grid;gap:28px}
+.faq-group{min-width:0}
+.faq-group[hidden],.faq-question[hidden],.faq-empty[hidden]{display:none!important}
+.faq-group-heading{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid #b67cea56}
+.faq-group-number{font:800 11px ui-monospace,Consolas,monospace;color:#c58cf0}
+.faq-group-heading h3{font-size:15px;letter-spacing:-.025em;flex:1;color:#ecd7ff;margin:0}
+.faq-group-total{font:800 10px ui-monospace,Consolas,monospace;letter-spacing:.07em;color:#927caa}
+#faq .faq-question{margin:0;padding:0 14px;border-bottom:1px solid #b77cef21;border-radius:0}
+#faq .faq-question:hover{background:#ba7afa0a}
+#faq .faq-question[open]{background:#ad71ff0e;border-color:#bc7dff65}
+#faq .faq-question summary{font-size:14px;line-height:1.45;padding:17px 0 17px 1px;gap:16px;color:#f1e7f9}
+#faq .faq-question summary::after{font-size:19px;flex:none}
+#faq .faq-answer{padding:0 0 16px}
+#faq .faq-answer p{color:#bfaed1;margin:0;font-size:13px;line-height:1.82}
+#faq .faq-answer a{color:#dfacff;text-decoration:underline;text-underline-offset:3px}
+#faq .faq-answer code{font-size:12px;color:#eed1ff;overflow-wrap:anywhere}
+.faq-empty{text-align:center;border:1px solid #aa6ee648;background:#1d102c;padding:35px 26px;border-radius:14px}
+.faq-empty h3{font-size:20px;margin:0 0 6px;color:#ead0ff}
+.faq-empty p{font-size:13px;color:#b4a3c3;margin:0}
+@media(max-width:880px){#faq .faq{grid-template-columns:1fr;gap:30px}.faq-intro{position:static}.faq-search{max-width:480px}.faq-answers{gap:22px}}
+@media(max-width:600px){.faq-group-heading{flex-wrap:wrap}.faq-group-total{font-size:9px}#faq .faq-question{padding:0 10px}}
