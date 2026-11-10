@@ -82,7 +82,9 @@
               <h3>CoolWip</h3>
               <p>The owner behind CoolWips SMP, building the server and bringing the community together.</p>
               <span class="founder-signature">THE ONE WHO STARTED IT ALL</span>
+              <span class="founder-open-caption" aria-hidden="true">VIEW PROFILE <span>↗</span></span>
             </div>
+            <button type="button" class="founder-open" data-founder="coolwip" aria-haspopup="dialog" aria-controls="founder-profile-dialog" aria-label="View CoolWip's profile"></button>
           </article>
           <article class="founder-card founder-kaitlynn">
             <div class="founder-photo-wrap"><img class="founder-photo" src="assets/featured/kaitlynn.webp" width="160" height="160" alt="Silhouette forming a heart against a sunset, Kaitlynn's chosen picture" loading="lazy" decoding="async"/><span class="founder-photo-glow" aria-hidden="true"></span></div>
@@ -91,9 +93,12 @@
               <h3>Kaitlynn</h3>
               <p>The woman that made all this possible.</p>
               <span class="founder-signature">WITH LOVE &amp; APPRECIATION</span>
+              <span class="founder-open-caption" aria-hidden="true">VIEW PROFILE <span>↗</span></span>
             </div>
+            <button type="button" class="founder-open" data-founder="kaitlynn" aria-haspopup="dialog" aria-controls="founder-profile-dialog" aria-label="View Kaitlynn's profile"></button>
           </article>
         </div>
+        <p class="founder-tap-tip">Tap a profile to learn more about the people behind the server.</p>
         <div class="founder-staff-divider"><span>OUR TEAM</span></div><div class="staff-grid"><article class="staff-card"><div class="staff-card-top"><img src="assets/staff/orangemike.webp?v=original" width="84" height="84" alt="Orangemike's Discord avatar" loading="lazy" decoding="async"><div class="staff-identity"><h3>Orangemike</h3><p>@4dbm</p></div></div><p class="staff-nickname">Server Administrator</p><div class="staff-roles"><span class="staff-role administrator">Administrator</span></div></article><article class="staff-card"><div class="staff-card-top"><img src="assets/staff/duck.webp?v=original" width="84" height="84" alt="duck's Discord avatar" loading="lazy" decoding="async"><div class="staff-identity"><h3>duck</h3><p>@buddybox_</p></div></div><p class="staff-nickname">Senior Administration</p><div class="staff-roles"><span class="staff-role senior">Sr Admin</span></div></article><article class="staff-card"><div class="staff-card-top"><img src="assets/staff/greenreaper.webp?v=original" width="84" height="84" alt="GreenReaperSlayer's Discord avatar" loading="lazy" decoding="async"><div class="staff-identity"><h3>GreenReaperSlayer</h3><p>@greenreaperslayer</p></div></div><p class="staff-nickname">A man of many names — also known as “Ryan WiFi” and “Right Hand”.</p><p class="staff-bio">His dad is famous in the furry community.</p><div class="staff-roles"><span class="staff-role junior">Jr Admin</span></div></article><article class="staff-card"><div class="staff-card-top"><img src="assets/staff/sparky.webp?v=original" width="84" height="84" alt="Sparky's Discord avatar" loading="lazy" decoding="async"><div class="staff-identity"><h3>Sparky</h3><p>@sparkyxd</p></div></div><p class="staff-nickname">Also called “Farty” or “Fart nugget”.</p><p class="staff-bio">A large-scale content creator who single-handedly brought in 50+ confirmed members and has a YouTube Short with 2.5 million views.</p><div class="staff-highlights" aria-label="Content creator achievements"><span>50+ confirmed members</span><span>2.5M Short views</span></div><div class="staff-roles"><span class="staff-role moderator">Moderator</span><span class="staff-role creator">Content Creator</span></div></article></div><p class="staff-footnote">Staff roles are listed as provided by the server owner.</p></div></section>
     <section class="join-section" id="join"><div class="wrap"><div class="join-card"><div class="join-left"><div class="kicker">03 / Ready to play?</div><h2>DON’T JUST WATCH.<br/>JOIN THE STORY.</h2><p>Choose Java or Bedrock, copy the address, and jump into the world. Console players can follow our separate joining guide.</p><div class="edition-list"><div class="edition-card"><div class="edition-head"><strong>Java Edition</strong><span>Multiplayer → Add Server</span></div><div class="edition-address"><code>tw-observers.tun.ply.gg</code><button type="button" class="copy-small" data-copy="tw-observers.tun.ply.gg" aria-label="Copy Java server IP">Copy IP</button></div></div><div class="edition-card"><div class="edition-head"><strong>Bedrock Edition</strong><span>Servers → Add Server</span></div><div class="edition-address"><code>domination-ashlee.tun.ply.gg</code><button type="button" class="copy-small" data-copy="domination-ashlee.tun.ply.gg" aria-label="Copy Bedrock server IP">Copy IP</button></div><div class="edition-port">Port: <code>19132</code> <button type="button" class="copy-small" data-copy="19132" aria-label="Copy Bedrock port">Copy Port</button></div></div></div><p class="join-hint">Java: enter the Java address above. Bedrock: enter the Bedrock address and port 19132.</p></div><div class="join-right" aria-hidden="true"><div class="join-glyph">CW</div></div></div></div></section>
 
@@ -140,6 +145,26 @@
     <section class="closing"><div class="closing-glow" aria-hidden="true"></div><div class="wrap"><div class="kicker">The world is waiting</div><h2>THE NEXT LEGEND<br/>COULD BE YOU.</h2><p>Build an empire. Start a rivalry. Bring your friends. The world is waiting.</p><a href="#link-account" class="btn btn-green">How to Link Your Account <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div></section>
   </main>
   <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#home" style="font-size:15px"><span class="brand-icon" style="width:30px;height:30px"><img src="assets/coolwips-bot.webp" alt="" width="30" height="30" /></span><span>COOL<span>WIPS</span></span></a><small>© <span id="year"></span> CoolWips SMP. Not affiliated with Mojang or Microsoft.</small><nav aria-label="Footer links"><a href="#staff">Staff</a><a href="#link-account">Linking</a><a href="#console">Console</a><a href="#rules">Rules</a><a href="#reports">Reports</a><a href="#faq">FAQ</a><a href="#join">Join</a></nav></div></footer>
+  <dialog id="founder-profile-dialog" class="founder-profile-dialog" aria-labelledby="founder-dialog-name" aria-describedby="founder-dialog-bio">
+    <div class="founder-dialog-ambient" aria-hidden="true"></div>
+    <button class="founder-dialog-close" type="button" aria-label="Close profile">×</button>
+    <div class="founder-dialog-body">
+      <div class="founder-dialog-photo-frame">
+        <img id="founder-dialog-photo" src="assets/featured/coolwip.webp" alt="" width="480" height="480" loading="lazy" decoding="async" />
+      </div>
+      <div class="founder-dialog-info">
+        <span class="founder-dialog-kicker">ABOUT US / COOLWIPS SMP</span>
+        <span class="founder-dialog-role" id="founder-dialog-role">SERVER OWNER</span>
+        <h2 id="founder-dialog-name">CoolWip</h2>
+        <p class="founder-dialog-bio" id="founder-dialog-bio">The owner behind CoolWips SMP, building the server and bringing the community together.</p>
+        <p class="founder-dialog-story" id="founder-dialog-story">CoolWips SMP is a community-driven survival server for Java and Bedrock players.</p>
+        <div class="founder-dialog-actions">
+          <a href="#staff" class="founder-dialog-other" id="founder-dialog-other">Meet Kaitlynn <span aria-hidden="true">→</span></a>
+          <a href="https://discord.gg/KDA3Z7n954" class="founder-dialog-discord" target="_blank" rel="noopener noreferrer">CoolWips Discord <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </dialog>
   <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>
   <div class="toast" role="status" aria-live="polite" id="toast">Copied!</div>
   <script>
@@ -159,5 +184,6 @@
   </script>
   <script src="assets/experience.js?v=1" defer></script>
   <script src="assets/faq.js?v=1" defer></script>
+  <script src="assets/profiles.js?v=1" defer></script>
 </body>
 </html>

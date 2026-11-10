@@ -227,3 +227,42 @@ body{background:#080510;color:#faf6ff;-webkit-font-smoothing:antialiased;isolati
 @media(max-width:550px){.founder-heading{font-size:9px;letter-spacing:.1em;gap:9px}.founder-grid{margin-bottom:35px}.founder-card{gap:15px;padding:16px;border-radius:15px}.founder-photo-wrap{width:112px;height:112px;border-radius:12px}.founder-photo{border-radius:8px}.founder-content h3{font-size:25px;margin-bottom:6px}.founder-content p{font-size:12px;margin-bottom:9px}.founder-status{font-size:9px;margin-bottom:7px}.founder-signature{font-size:8px;letter-spacing:.06em}}
 @media(max-width:370px){.founder-photo-wrap{width:95px;height:95px}.founder-card{gap:11px;padding:12px}.founder-content h3{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.founder-card,.founder-photo{transition:none!important}}
+
+/* Clickable founder profiles with responsive, accessible detail dialog */
+.founder-card{cursor:pointer}
+.founder-open{position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;border-radius:inherit;cursor:pointer;z-index:5}
+.founder-open:focus-visible{outline:3px solid var(--founder-edge);outline-offset:-6px}
+.founder-open-caption{display:inline-flex;align-items:center;gap:8px;color:var(--founder-light);font:900 10px ui-monospace,Consolas,monospace;letter-spacing:.13em;margin-top:16px;transition:gap .25s,opacity .25s}
+.founder-open-caption span{font-size:16px}
+.founder-card:is(:hover,:focus-within) .founder-open-caption{gap:16px;color:#fff}
+.founder-card:focus-within{border-color:var(--founder-edge);box-shadow:0 0 0 2px var(--founder-edge),0 25px 58px #5f25803b}
+.founder-tap-tip{text-align:center;margin:-24px 0 32px;color:#ad95c4;font-size:12px;letter-spacing:.035em}
+.founder-profile-dialog{color:#f9efff;padding:0;border:1px solid #c08af68c;max-width:min(810px,calc(100% - 30px));width:100%;max-height:min(87dvh,790px);overflow:auto;border-radius:22px;background:linear-gradient(145deg,#211030,#10071c 78%);box-shadow:0 25px 100px #000c,0 0 80px #8529cb32;position:fixed}
+.founder-profile-dialog::backdrop{background:#050208c7;backdrop-filter:blur(9px)}
+.founder-profile-dialog[open]{animation:founder-dialog-in .32s cubic-bezier(.17,.78,.2,1) both}
+.founder-dialog-ambient{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 85% 60% at 0 0,#ad61ff1e,transparent 75%)}
+.founder-profile-dialog[data-person="coolwip"]{border-color:#f1a653a3}
+.founder-profile-dialog[data-person="coolwip"] .founder-dialog-role{color:#ffcb93}
+.founder-profile-dialog[data-person="coolwip"] .founder-dialog-photo-frame{border-color:#efa15682}
+.founder-profile-dialog[data-person="kaitlynn"]{border-color:#e5a6e2a3}
+.founder-profile-dialog[data-person="kaitlynn"] .founder-dialog-role{color:#f9c5f1}
+.founder-profile-dialog[data-person="kaitlynn"] .founder-dialog-photo-frame{border-color:#e5a6e282}
+.founder-dialog-body{position:relative;display:grid;grid-template-columns:minmax(220px,.88fr) minmax(0,1.15fr);gap:28px;padding:42px;align-items:center}
+.founder-dialog-photo-frame{aspect-ratio:1;overflow:hidden;border-radius:18px;border:1px solid #ca9cff60;background:#180c28;box-shadow:0 15px 50px #04010880}
+.founder-dialog-photo-frame img{width:100%;height:100%;display:block;object-fit:cover}
+.founder-dialog-kicker{display:block;font:900 10px ui-monospace,Consolas,monospace;letter-spacing:.17em;color:#a991be;margin-bottom:28px}
+.founder-dialog-role{display:block;font:900 11px ui-monospace,Consolas,monospace;letter-spacing:.15em;color:#d8aeff;margin-bottom:11px}
+.founder-dialog-info h2{font-size:clamp(37px,4.6vw,60px);letter-spacing:-.065em;line-height:1.02;margin:0 0 18px;color:#fff}
+.founder-dialog-bio{color:#eed9fa;font-size:17px;line-height:1.55;margin:0 0 13px;font-weight:650}
+.founder-dialog-story{color:#beaecd;font-size:14px;line-height:1.8;margin:0}
+.founder-dialog-actions{border-top:1px solid #a766d54d;margin-top:30px;padding-top:19px;display:flex;gap:20px;flex-wrap:wrap}
+.founder-dialog-actions a{font-size:12px;font-weight:850;color:#d5a6fa;transition:color .2s}
+.founder-dialog-actions a:hover{color:#fff}
+.founder-dialog-actions span{margin-left:5px}
+.founder-dialog-close{position:absolute;z-index:3;top:14px;right:14px;width:39px;height:39px;display:grid;place-items:center;background:#392044;border:1px solid #c09bdb50;border-radius:12px;color:#fff;font-size:29px;font-weight:300;cursor:pointer;transition:background .2s,transform .2s}
+.founder-dialog-close:hover{background:#6b368c;transform:rotate(90deg)}
+.founder-dialog-close:focus-visible{outline:3px solid #e4beff;outline-offset:3px}
+@keyframes founder-dialog-in{from{opacity:0;transform:translateY(16px) scale(.975)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:710px){.founder-dialog-body{grid-template-columns:1fr;gap:22px;padding:50px 23px 25px}.founder-dialog-photo-frame{width:min(100%,270px);margin:0 auto}.founder-dialog-kicker{margin-bottom:15px}.founder-profile-dialog{max-height:88dvh}.founder-dialog-close{top:10px;right:10px}}
+@media(max-width:390px){.founder-dialog-body{padding:48px 17px 20px}.founder-dialog-photo-frame{width:min(100%,220px)}}
+@media(prefers-reduced-motion:reduce){.founder-profile-dialog[open]{animation:none!important}.founder-dialog-close,.founder-open-caption{transition:none!important}}
