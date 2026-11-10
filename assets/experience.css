@@ -133,3 +133,7 @@ body{background:#080510;color:#faf6ff;-webkit-font-smoothing:antialiased;isolati
   .reveal-pending,.reveal-in{opacity:1!important;transform:none!important;filter:none!important}
   .atmosphere-orb{display:none}
 }
+/* Section rhythm and focused interaction refinements */
+.staff-section{padding-top:94px}
+.copy-small.copied{background:#b8ffe9;color:#072822}
+@media(max-width:600px){.staff-section{padding-top:67px}}

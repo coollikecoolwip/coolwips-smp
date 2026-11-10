@@ -18,7 +18,7 @@
  addEventListener('scroll',schedule,{passive:true});
  addEventListener('resize',schedule,{passive:true});
  drawScroll();
- if(up)up.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'}));
+ if(up)up.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced.matches?'auto':'smooth'}));
  const items=[...doc.querySelectorAll('.section-head,.feature,.staff-card,.join-card,.rule-group,.faq details,.help-card,.help-alert,.console-ip-panel,.help-troubleshoot,.void-manifesto .wrap,.closing .wrap')];
  if(!reduced.matches&&'IntersectionObserver' in window){
    const observer=new IntersectionObserver((entries,obs)=>{
@@ -76,12 +76,5 @@
    },{rootMargin:'-20% 0px -55% 0px',threshold:[0,.1,.4]});
    tracked.forEach(el=>observer.observe(el));
  }
- doc.querySelectorAll('[data-copy]').forEach(button=>{
-   button.addEventListener('click',()=>{
-     button.classList.add('copied');
-     const label=button.textContent;
-     button.textContent='Copied';
-     setTimeout(()=>{button.classList.remove('copied');button.textContent=label},1400);
-   });
- });
+
 })();

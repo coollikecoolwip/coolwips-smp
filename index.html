@@ -122,7 +122,7 @@
     menuButton.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(isOpen));menuButton.setAttribute('aria-label',isOpen?'Close navigation':'Open navigation')});
     navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
     if(CONFIG.discordInvite&&/^https:\/\/discord\.(gg|com)\//.test(CONFIG.discordInvite))document.querySelectorAll('.discord-link').forEach(a=>{a.href=CONFIG.discordInvite;a.target='_blank';a.rel='noopener noreferrer'});
-    document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(button.dataset.copy);showToast('Copied to clipboard!')}catch{showToast('Select and copy the displayed value manually.')}}));
+    document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(button.dataset.copy);showToast('Copied to clipboard!');button.classList.add('copied');const text=button.textContent;button.textContent='Copied!';setTimeout(()=>{button.classList.remove('copied');button.textContent=text},1400)}catch{showToast('Select and copy the displayed value manually.')}}));
     let toastTimer;function showToast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2500)}
   </script>
   <script src="assets/experience.js?v=1" defer></script>
