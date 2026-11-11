@@ -41,7 +41,7 @@ if(edition==='bedrock'){
   return;
 }
 try{const result=await fetchJson('https://api.mcstatus.io/v2/status/java/'+encodeURIComponent(host)+'?query=false',15000);
-if(result.online===true){state.textContent='Online';state.classList.add('online');count.textContent=fmtNumber(result.players&&result.players.online);const ver=(result.version&&typeof result.version==='object'&&(result.version.name_clean||result.version.name_raw||result.version.name))||(typeof result.version==='string'?result.version:'');version.textContent='Java version: '+(cfg.javaVersion||(/\\d+(?:\\.\\d+)+/.test(ver)?ver:'Unknown'));}
+if(result.online===true){state.textContent='Online';state.classList.add('online');count.textContent=fmtNumber(result.players&&result.players.online);version.textContent='Java version: '+(cfg.javaVersion||'26.2');}
 else if(result.online===false){state.textContent='Offline (check)';state.classList.add('offline');version.textContent='Status API could not reach the server';}
 else{state.textContent='Unavailable';version.textContent='No reliable result available';}}
 catch(err){state.textContent='Unavailable';version.textContent='Could not complete public status check';}
