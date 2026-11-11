@@ -1,6 +1,6 @@
 /* CoolWips SMP Player Hub - no secrets or private server details in this public file. */
 (()=>{'use strict';
-const cfg=Object.assign({javaAddress:'play.coolwip.xyz',bedrockAddress:'bedrock.coolwip.xyz',bedrockPort:19132,bedrockConfirmed:true,statsUrl:'assets/data/players.json',marketUrl:'assets/data/market.json',updatesUrl:'assets/data/updates.json',supabaseUrl:'',supabasePublishableKey:''},window.COOLWIPS_HUB||{});
+const cfg=Object.assign({javaAddress:'play.coolwip.xyz',javaVersion:'26.2',bedrockAddress:'bedrock.coolwip.xyz',bedrockPort:19132,bedrockConfirmed:true,statsUrl:'assets/data/players.json',marketUrl:'assets/data/market.json',updatesUrl:'assets/data/updates.json',supabaseUrl:'',supabasePublishableKey:''},window.COOLWIPS_HUB||{});
 const $=id=>document.getElementById(id);
 const tabs=['status','join','leaderboards','market','players','reports','staff','updates'];
 const model={players:[],market:[],updates:[],events:[],accessToken:null};
@@ -41,7 +41,7 @@ if(edition==='bedrock'){
   return;
 }
 try{const result=await fetchJson('https://api.mcstatus.io/v2/status/java/'+encodeURIComponent(host)+'?query=false',15000);
-if(result.online===true){state.textContent='Online';state.classList.add('online');count.textContent=fmtNumber(result.players&&result.players.online);const ver=(result.version&&typeof result.version==='object'&&(result.version.name_clean||result.version.name_raw||result.version.name))||(typeof result.version==='string'?result.version:'');version.textContent=ver?'Version: '+ver:'Server responding';}
+if(result.online===true){state.textContent='Online';state.classList.add('online');count.textContent=fmtNumber(result.players&&result.players.online);const ver=(result.version&&typeof result.version==='object'&&(result.version.name_clean||result.version.name_raw||result.version.name))||(typeof result.version==='string'?result.version:'');version.textContent='Java version: '+(cfg.javaVersion||(/\\d+(?:\\.\\d+)+/.test(ver)?ver:'Unknown'));}
 else if(result.online===false){state.textContent='Offline (check)';state.classList.add('offline');version.textContent='Status API could not reach the server';}
 else{state.textContent='Unavailable';version.textContent='No reliable result available';}}
 catch(err){state.textContent='Unavailable';version.textContent='Could not complete public status check';}
