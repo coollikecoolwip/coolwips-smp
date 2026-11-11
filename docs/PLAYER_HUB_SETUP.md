@@ -3,7 +3,7 @@
 Live page: `https://coolwip.xyz/hub.html`. Site is static and remains on GitHub Pages.
 
 ## Ready immediately
-- Status: Java `play.coolwip.xyz`, Bedrock fallback `domination-ashlee.tun.ply.gg:19132`. The new Bedrock custom address was not provided, so **edit `assets/hub-config.js`** before advertising it. API checks are via mcstatus.io and can show unavailable for NetherNet/Playit even if players can join.
+- Status: Java `play.coolwip.xyz`, Bedrock `bedrock.coolwip.xyz:19132` (custom Playit hostname provided by the owner). If the public Bedrock UDP port changes, edit `assets/hub-config.js` and homepage joining details. API checks are via mcstatus.io and can show unavailable for NetherNet/Playit even if players can join.
 - Join guide/copy, search/filter UI, profile avatar search, published news/events.
 - Report submission falls back to a mail draft (not a saved ticket) while the secure backend isn't configured. The target `reports@coolwip.xyz` must be a real mailbox in Amelu before relying on this method.
 - The staff portal remains locked until database authentication is configured. Staff Email opens Amelu Webmail; no mailbox passwords touch GitHub Pages.
