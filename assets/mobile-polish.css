@@ -1,0 +1,323 @@
+/*
+ * CoolWips SMP — focused mobile polish layer.
+ * Touch-first responsive refinements, after desktop and experience styles.
+ * Does not change desktop styling or require external libraries.
+ */
+@media (max-width:1100px) {
+  .nav-shell {
+    border-bottom:1px solid #b67cdd5a;
+    background:#0c0716fa;
+    -webkit-backdrop-filter:blur(14px);
+    backdrop-filter:blur(14px);
+  }
+  .nav-shell .nav {
+    position:relative;
+    min-width:0;
+    height:72px;
+  }
+  .nav-shell .brand {
+    min-width:0;
+    max-width:calc(100% - 76px);
+    font-size:20px;
+    letter-spacing:-.055em;
+    gap:11px;
+  }
+  .nav-shell .brand .brand-icon {flex:none}
+  .nav-shell .mobile-menu {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:48px;
+    height:48px;
+    flex:none;
+    padding:0;
+    border-radius:13px;
+    border:1px solid #aa71dc73;
+    background:linear-gradient(140deg,#271535,#160b25);
+    color:#f4e5ff;
+    box-shadow:0 3px 14px #0401075e;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+    transition:border-color .2s,background .2s;
+  }
+  .nav-shell .mobile-menu[aria-expanded="true"] {
+    background:#51306b;
+    border-color:#dfa7ff;
+  }
+  .nav-shell .mobile-menu svg {width:23px;height:23px}
+  .nav-shell .nav .links {
+    position:absolute;
+    top:calc(100% + 8px);
+    left:0;
+    right:0;
+    z-index:80;
+    display:none;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px;
+    max-height:min(72svh,570px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    padding:13px;
+    background:#160c25f9;
+    border:1px solid #a96cde86;
+    border-radius:17px;
+    box-shadow:0 16px 55px #030007bd,0 0 0 1px #261233 inset;
+    align-items:stretch;
+  }
+  .nav-shell .nav .links.open{display:grid}
+  .nav-shell .nav .links a:not(.btn) {
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    min-height:48px;
+    min-width:0;
+    margin:0;
+    padding:11px 13px;
+    border-radius:10px;
+    border:1px solid transparent;
+    background:#39224944;
+    font-size:13px;
+    font-weight:750;
+    line-height:1.25;
+    color:#eddcf7;
+    white-space:normal;
+    text-decoration:none;
+  }
+  .nav-shell .nav .links a:not(.btn):hover,
+  .nav-shell .nav .links a.is-active {
+    background:#a86fe62d;
+    border-color:#be86f85b;
+    color:#fff;
+  }
+  .nav-shell .nav .links a:not(.btn)::after{display:none}
+  .nav-shell .nav .links a.staff-login-nav {
+    color:#dcb9f2;
+    background:#56315c45;
+  }
+  .nav-shell .nav .links a.btn {
+    grid-column:1/-1;
+    display:flex;
+    justify-content:center;
+    width:100%;
+    min-height:50px;
+    margin:4px 0 0;
+    border-radius:10px;
+    font-size:13px;
+  }
+  .nav-shell .brand small{color:#b5a1c5!important}
+  .feature,.staff-card,.founder-card,.help-card,.report-card {
+    -webkit-tap-highlight-color:transparent;
+  }
+  .section-head{min-width:0}
+  .staff-grid,.founder-grid,.features,.help-cards,.console-help-steps,.reports-grid{min-width:0}
+  .staff-card,.founder-card,.feature,.help-card,.report-card{overflow-wrap:anywhere}
+}
+
+@media (max-width:700px) {
+  :root {font-size:16px}
+  html {scroll-padding-top:86px}
+  .wrap{width:calc(100% - 36px);max-width:570px}
+  .nav-shell .nav{height:68px}
+  .nav-shell .brand{font-size:20px}
+  .nav-shell .brand .brand-icon{width:39px;height:39px}
+  .nav-shell .brand small{font-size:8px!important;letter-spacing:.14em!important;line-height:1.4}
+  .nav-shell .nav .links{left:0;right:0}
+  .section{padding:66px 0}
+  .section-head{margin-bottom:26px}
+  .section-head .kicker,.kicker{font-size:10px;letter-spacing:.13em}
+  .section h2{font-size:clamp(32px,8.1vw,43px);letter-spacing:-.06em;line-height:1.07;margin-bottom:13px}
+  .section-intro{font-size:14px;line-height:1.72;max-width:100%}
+
+  /* Keep the hero dramatic without consuming two phone screens. */
+  .hero-grid{grid-template-columns:1fr;gap:0;min-height:0}
+  .hero-copy{padding:51px 0 0}
+  .hero .eyebrow{padding:7px 11px;font-size:9px;letter-spacing:.08em;max-width:100%;gap:7px}
+  .hero h1{font-size:clamp(51px,13.7vw,73px);margin:21px 0 15px;letter-spacing:-.085em;line-height:.98}
+  .hero-strap{font-size:10px;letter-spacing:.15em;margin-bottom:14px}
+  .hero-p{font-size:14px;line-height:1.7;max-width:39ch;margin-bottom:24px}
+  .hero .actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .hero .actions .btn {
+    width:100%;
+    min-height:53px;
+    padding:12px 10px;
+    font-size:12px;
+    line-height:1.32;
+    border-radius:11px;
+    white-space:normal;
+    text-align:center;
+  }
+  .hero .actions .btn svg{height:15px;width:15px;flex:none}
+  .hero .micro{display:flex;flex-wrap:wrap;gap:8px 15px;margin:21px 0 0}
+  .hero .micro span{font-size:11px;line-height:1.35}
+  .hero .discover-link{margin-top:18px;font-size:10px}
+  .hero-art{min-height:275px;max-height:310px;margin:0 auto}
+  .portal-core{width:min(61vw,235px)}
+  .portal-ring.outer{width:min(84vw,330px)}
+  .portal-ring.inner{width:min(70vw,266px)}
+  .void-caption,.hero-coordinate{font-size:9px;letter-spacing:.1em}
+  .hero-stamp{display:none}
+  .bar-inner{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bar-item{padding:17px 11px!important}
+  .bar-item:first-child{padding-left:11px}
+  .bar-item strong{font-size:12px;line-height:1.4}
+  .bar-item span{font-size:10px;line-height:1.35;letter-spacing:.05em}
+  .feature{min-height:0;padding:23px;border-radius:15px}
+  .feature-icon{margin-bottom:25px}
+  .feature h3{font-size:22px}
+  .feature p{font-size:13px;line-height:1.74}
+
+  /* Clearer section breaks and tighter team layout. */
+  .void-manifesto{padding:45px 0}
+  .void-manifesto p{font-size:clamp(40px,11.8vw,66px);margin:27px 0 23px;line-height:.98}
+  .manifesto-rail,.manifesto-bottom{gap:10px;flex-wrap:wrap}
+  .manifesto-bottom{line-height:1.5}
+  .staff-section{padding-top:55px!important;padding-bottom:0!important}
+  .staff-section .section-head{margin-bottom:25px}
+  .founder-heading{margin-bottom:15px}
+  .founder-grid{gap:11px;margin-bottom:29px}
+  .founder-card{border-radius:16px;padding:16px 17px;gap:16px}
+  .founder-photo-wrap{width:107px;height:107px;flex:none}
+  .founder-content h3{font-size:26px}
+  .founder-content p{font-size:12px;line-height:1.57}
+  .founder-open-caption{font-size:9px;margin-top:11px}
+  .founder-tap-tip{font-size:11px;line-height:1.55;margin:-14px 0 26px}
+  .founder-staff-divider{margin-bottom:16px}
+  .staff-grid{grid-template-columns:1fr;gap:12px}
+  .staff-card{padding:20px;border-radius:16px;min-height:0}
+  .staff-card-top{align-items:center;gap:14px;margin-bottom:13px}
+  .staff-card img{width:64px;height:64px;border-radius:15px;flex:none}
+  .staff-card .staff-identity h3{font-size:21px;line-height:1.25;letter-spacing:-.045em}
+  .staff-card .staff-identity p{font-size:12px}
+  .staff-card .staff-nickname{font-size:13px;line-height:1.55;margin-bottom:7px}
+  .staff-card .staff-bio{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+    line-clamp:3;
+    overflow:hidden;
+    font-size:13px;
+    line-height:1.66;
+    margin-bottom:10px;
+  }
+  .staff-card .staff-family{padding-top:8px}
+  .staff-role{font-size:11px;padding:8px 11px}
+  .staff-roles{gap:7px;flex-wrap:wrap}
+  .staff-highlights{gap:6px;margin-bottom:11px}
+  .staff-highlights span{padding:7px 9px;font-size:10px}
+  .staff-open-caption{font-size:10px;padding-top:13px;margin-top:12px}
+  .staff-section .staff-footnote{font-size:11px;line-height:1.6;margin-top:16px;margin-bottom:0}
+  .memorial-section .memorial-wrap{padding-top:12px!important}
+  .memorial-card{border-radius:16px;gap:15px;padding:17px 17px}
+  .memorial-avatar-frame{width:70px;height:70px}
+  .memorial-eyebrow{font-size:9px;letter-spacing:.11em}
+  .memorial-title{font-size:clamp(17px,5vw,22px)}
+  .memorial-subtitle{font-size:11px;line-height:1.55}
+  .memorial-heading{font-size:9px;gap:10px;margin-bottom:11px}
+  .memorial-divider{margin-top:38px}
+  .memorial-section{padding-bottom:51px}
+
+  /* Joining and report information, optimized for thumb interaction. */
+  .join-section{padding-bottom:73px}
+  .join-card{border-radius:18px}
+  .join-left{padding:26px 20px}
+  .join-left h2{font-size:clamp(29px,7.6vw,39px);line-height:1.12;margin-bottom:14px}
+  .join-left p{font-size:13px;line-height:1.7;margin-bottom:20px}
+  .edition-list{gap:12px}
+  .edition-card{padding:17px 14px;border-radius:12px}
+  .edition-head{align-items:flex-start;gap:5px}
+  .edition-head strong{font-size:14px}
+  .edition-head span{font-size:10px}
+  .edition-address,.console-ip-line{gap:10px}
+  .edition-address code,.console-ip-line code{font-size:12px;line-height:1.7;flex:1 1 100%;min-width:0;overflow-wrap:anywhere}
+  .edition-address .copy-small,.console-ip-line .copy-small{min-height:44px;width:100%;border-radius:9px}
+  .edition-port{line-height:1.7}
+  .help-section{padding:67px 0}
+  .help-cards,.console-help-steps{gap:12px}
+  .help-card{padding:22px;border-radius:14px}
+  .help-card h3{font-size:18px}
+  .help-card p{font-size:13px}
+  .help-alert{padding:16px 18px}
+  .console-ip-panel{padding:20px;border-radius:14px}
+  .console-ip-panel h3{margin-bottom:14px}
+  .help-troubleshoot{padding:16px 18px}
+  .reports-section{padding:66px 0}
+  .reports-grid{gap:13px}
+  .report-card{padding:22px;border-radius:15px}
+  .report-card h3{font-size:25px}
+  .report-card p{font-size:13px;line-height:1.7;margin-bottom:18px}
+  .report-card-top{margin-bottom:16px}
+  .report-symbol{width:47px;height:47px;font-size:27px}
+  .report-action{width:100%;font-size:13px;min-height:50px;border-radius:10px}
+  .reports-tip{padding:16px;gap:11px}
+
+  /* Search and long FAQs remain legible and touch-accessible. */
+  #faq .faq{margin-top:15px;gap:25px}
+  #faq .faq-intro{position:static}
+  .faq-search{margin-top:20px;max-width:none}
+  .faq-search-field{min-height:54px;padding:12px 14px}
+  .faq-search-field input{font-size:16px}
+  .faq-answers{gap:24px}
+  .faq-group-heading h3{font-size:14px}
+  .faq-group-total{font-size:9px}
+  #faq .faq-question{padding:0 8px}
+  #faq .faq-question summary{min-height:57px;font-size:13px;line-height:1.5;padding:15px 0}
+  #faq .faq-answer p{font-size:13px;line-height:1.76}
+
+  .closing{padding:67px 0}
+  .closing h2{font-size:clamp(36px,9vw,52px);line-height:1.06}
+  .closing p{font-size:14px;line-height:1.7}
+  .closing .btn{width:100%;min-height:52px;border-radius:10px;white-space:normal;text-align:center}
+  .footer{padding:26px 0 max(30px,env(safe-area-inset-bottom))}
+  .footer-inner{display:grid;gap:14px}
+  .footer nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:0}
+  .footer nav a{min-height:44px;padding:8px 11px;background:#2615345c;border:1px solid #a271d336;border-radius:8px;font-size:11px;line-height:1.35}
+  .footer small{font-size:11px;line-height:1.55}
+  .back-to-top{width:43px;height:43px;right:14px;bottom:calc(17px + env(safe-area-inset-bottom));border-radius:13px}
+  .toast{max-width:calc(100vw - 30px);bottom:calc(18px + env(safe-area-inset-bottom))}
+  .founder-profile-dialog{overscroll-behavior:contain}
+  .founder-dialog-photo-frame{width:min(100%,185px)}
+  .founder-dialog-body{gap:12px}
+  .founder-dialog-actions a{min-height:44px}
+}
+
+@media (max-width:390px) {
+  .wrap{width:calc(100% - 28px)}
+  .nav-shell .nav{height:64px}
+  .nav-shell .brand{font-size:18px;gap:9px}
+  .nav-shell .brand .brand-icon{width:36px;height:36px}
+  .nav-shell .brand small{font-size:7px!important;letter-spacing:.12em!important}
+  .nav-shell .mobile-menu{width:45px;height:45px}
+  .nav-shell .nav .links{padding:9px;gap:6px}
+  .nav-shell .nav .links a:not(.btn){padding:9px 10px;font-size:12px}
+  .hero-copy{padding-top:39px}
+  .hero h1{font-size:clamp(46px,13.5vw,55px)}
+  .hero .actions{grid-template-columns:1fr}
+  .hero .actions .btn{min-height:49px}
+  .hero-art{min-height:235px;max-height:260px}
+  .portal-core{width:min(60vw,200px)}
+  .portal-ring.outer{width:min(86vw,282px)}
+  .portal-ring.inner{width:min(72vw,232px)}
+  .founder-card{gap:11px;padding:14px}
+  .founder-photo-wrap{width:90px;height:90px}
+  .founder-content h3{font-size:22px}
+  .founder-content p{font-size:11px}
+  .memorial-card{padding:15px 13px;gap:12px}
+  .memorial-avatar-frame{width:59px;height:59px}
+  .memorial-title{font-size:16px}
+  .edition-address code,.console-ip-line code{font-size:11px}
+  .staff-card{padding:17px}
+  .report-card{padding:19px}
+}
+
+@media (hover:none),(pointer:coarse) {
+  .feature:hover,.founder-card:hover,.staff-card:hover,.help-card:hover,.report-card:hover {
+    transform:none!important;
+  }
+  .feature,.founder-card,.staff-card,.help-card,.report-card {
+    -webkit-tap-highlight-color:transparent;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .nav-shell .mobile-menu{transition:none!important}
+}
