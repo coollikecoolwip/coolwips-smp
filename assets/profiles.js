@@ -45,8 +45,8 @@
       handle: '@greenreaperslayer',
       image: 'assets/staff/greenreaper.webp',
       alt: "GreenReaperSlayer's Discord avatar",
-      nickname: "Also known as Wyatt, Ryan, WiFi, and Right Hand.",
-      bio: "GreenReaperSlayer tries to rizz up girls on Roblox with promises of farts and sweet dreams. He also can’t say “hard”—but that hasn't stopped him from trying. GreenReaperSlayer, also known as Wyatt, sleep calls with ChatGPT every night and somehow still needs it to teach him how to spell “sit.” At this point, ChatGPT is basically raising him.",
+      nickname: "Also known as Water Fountain, Ryan, WiFi, and Right Hand.",
+      bio: "GreenReaperSlayer tries to rizz up girls on Roblox with promises of farts and sweet dreams. He also can’t say “hard”—but that hasn't stopped him from trying. GreenReaperSlayer, also known as Water Fountain, sleep calls with ChatGPT every night and somehow still needs it to teach him how to spell “sit.” At this point, ChatGPT is basically raising him.",
       story: "Family: His dad is a celebrity in the furry community. His mom makes a living selling doors to homeless people. His sisters earn Fortnite V-Bucks by getting homosexual content creators to craft wooden hoes."
     },
     sparky: {

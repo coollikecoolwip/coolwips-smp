@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10091c">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Preview of the CoolWips SMP staff login interface.">
+  <link rel="icon" type="image/webp" href="assets/coolwips-logo-v2.webp">
+  <title>Staff Portal Preview | CoolWips SMP</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090511;--fg:#f6eafb;--muted:#bba7cc;--edge:#bd7aef73;--accent:#dba9ff}
+    *,*::before,*::after{box-sizing:border-box}
+    html{min-height:100%}
+    body{margin:0;min-height:100vh;min-height:100svh;background:radial-gradient(ellipse 48% 52% at 86% 14%,#742c9f50,transparent 80%),radial-gradient(ellipse 48% 45% at 12% 89%,#50248a54,transparent 84%),var(--bg);color:var(--fg);font:15px/1.6 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(#b46ee90a 1px,transparent 1px),linear-gradient(90deg,#b46ee90a 1px,transparent 1px);background-size:47px 47px;mask-image:linear-gradient(120deg,#000b,transparent 87%);pointer-events:none}
+    a{color:inherit;text-decoration:none}
+    .site-head{padding:18px max(18px,calc((100% - 1150px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid #b876f12f;background:#10091bc4}
+    .brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:900;letter-spacing:-.04em;white-space:nowrap}
+    .brand img{width:41px;height:41px;object-fit:contain;filter:drop-shadow(0 0 16px #cb81fa5c)}
+    .brand strong{color:var(--accent)}
+    .brand small{display:block;color:#a68dbb;font:800 9px/1.2 ui-monospace,Consolas,monospace;letter-spacing:.16em}
+    .back{display:inline-flex;align-items:center;justify-content:center;min-height:44px;gap:9px;padding:9px 13px;border:1px solid #aa71d75f;background:#301b42a3;border-radius:10px;color:#e5cdf7;font-size:12px;font-weight:800;transition:background .2s}
+    .back:hover{background:#523069}
+    .main{min-height:calc(100svh - 79px);display:grid;place-items:center;padding:65px 18px 85px}
+    .frame{width:min(100%,458px)}
+    .eyebrow{display:flex;justify-content:center;align-items:center;gap:13px;color:#cf9dff;font:900 10px ui-monospace,Consolas,monospace;letter-spacing:.16em;margin-bottom:27px;text-align:center}
+    .eyebrow::before,.eyebrow::after{content:"";width:35px;height:1px;background:#be7cff75}
+    .panel{position:relative;isolation:isolate;overflow:hidden;border-radius:20px;background:linear-gradient(145deg,#30193f,#170d26 63%,#110a1d);border:1px solid var(--edge);padding:clamp(24px,6vw,41px);box-shadow:0 25px 80px #0009,0 0 70px #7a2bab21,inset 0 1px #ffffff16}
+    .panel:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 68% 55% at 100% 0,#ca84ee24,transparent 78%);pointer-events:none}
+    .emblem{height:66px;width:66px;display:grid;place-items:center;color:#f1d6ff;border-radius:15px;border:1px solid #c98af4a6;background:#c083eb20;box-shadow:0 0 35px #ab5bec33;margin-bottom:26px}
+    .emblem svg{width:30px;height:30px}
+    .kicker{margin:0 0 9px;color:#c7a0ea;font:900 10px ui-monospace,Consolas,monospace;letter-spacing:.2em}
+    h1{font-size:clamp(37px,9vw,53px);line-height:1.03;letter-spacing:-.065em;margin:0 0 14px}
+    h1 span{color:#dbaaff}
+    .desc{font-size:14px;line-height:1.72;color:var(--muted);margin:0 0 22px}
+    .preview{display:inline-flex;align-items:center;gap:8px;color:#e9caff;font:850 10px ui-monospace,Consolas,monospace;letter-spacing:.065em;border:1px solid #bd8feb73;background:#b06ef421;padding:9px 12px;border-radius:999px;margin-bottom:23px}
+    .preview-dot{height:7px;width:7px;background:#dcacff;border-radius:50%;box-shadow:0 0 11px #c989ff}
+    .fields{display:grid;gap:17px}
+    .field-label{display:block;color:#efdcff;font-size:12px;font-weight:800;margin:0 0 7px}
+    input{width:100%;min-height:52px;padding:12px 14px;background:#0d0817b5;border:1px solid #a981c657;border-radius:9px;color:#b6a0c6;font:inherit;font-size:14px;opacity:1;-webkit-text-fill-color:#a68cb7}
+    input:disabled{opacity:1;cursor:not-allowed}
+    .forgot{margin:8px 0 0;font-size:11px;color:#a68cb9}
+    .login-button{margin:22px 0 0;display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:52px;border-radius:9px;border:1px solid #c89ce44f;background:linear-gradient(120deg,#6b428a,#52316b);color:#dbc5eb;font:900 13px Inter,system-ui,sans-serif;letter-spacing:.05em;opacity:.68;cursor:not-allowed}
+    .notice{margin-top:24px;padding:16px;display:flex;gap:13px;border:1px solid #aa76d36c;background:#311b40a9;border-radius:11px}
+    .notice-icon{height:26px;width:26px;flex:none;display:grid;place-items:center;border:1px solid #c99ef27f;border-radius:50%;color:#efd4ff;font-weight:900;font-size:13px}
+    .notice strong{font-size:12px;color:#f2ddff}
+    .notice p{margin:4px 0 0;color:#c7b2d8;font-size:12px;line-height:1.7}
+    .below{text-align:center;color:#9f8ab0;font-size:12px;line-height:1.65;margin:20px 0 0}
+    .below a{color:#d8a5ff;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+    a:focus-visible{outline:3px solid #dba9ff;outline-offset:4px}
+    @media(max-width:480px){.site-head{padding:12px 16px}.brand{font-size:16px}.brand img{height:35px;width:35px}.brand small{font-size:8px}.back{font-size:11px;padding:9px}.main{padding:35px 13px 65px}.panel{border-radius:16px}.eyebrow{font-size:9px;letter-spacing:.11em}.desc{font-size:13px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="./" aria-label="CoolWips SMP home"><img src="assets/coolwips-logo-v2.webp" width="41" height="41" alt=""><span>COOL<strong>WIPS</strong><small>STAFF ACCESS</small></span></a>
+    <a class="back" href="./#staff"><span aria-hidden="true">←</span> Back to website</a>
+  </header>
+  <main class="main">
+    <div class="frame">
+      <div class="eyebrow">COOLWIPS SMP / STAFF PORTAL</div>
+      <section class="panel" aria-labelledby="portal-heading">
+        <div class="emblem" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></div>
+        <p class="kicker">RESTRICTED AREA / CONCEPT</p>
+        <h1>STAFF <span>LOGIN.</span></h1>
+        <p class="desc">A preview of the CoolWips SMP staff portal. The login experience is not active yet.</p>
+        <div class="preview"><span class="preview-dot"></span> DESIGN PREVIEW — NOT FUNCTIONAL</div>
+        <div class="fields" aria-label="Disabled login screen preview">
+          <div><label class="field-label" for="staff-user">Staff Username</label><input id="staff-user" type="text" placeholder="Your staff username" disabled autocomplete="off"></div>
+          <div><label class="field-label" for="staff-pass">Password</label><input id="staff-pass" type="password" placeholder="••••••••••••" disabled autocomplete="off"></div>
+        </div>
+        <p class="forgot">Account access is currently unavailable.</p>
+        <button class="login-button" type="button" disabled>Sign in to Staff Portal <span aria-hidden="true">→</span></button>
+        <div class="notice" role="note"><span class="notice-icon" aria-hidden="true">i</span><div><strong>Preview only</strong><p>Nothing on this page logs you in. The fields and button are disabled. No passwords or information are requested, saved, or transmitted.</p></div></div>
+      </section>
+      <p class="below">Looking for staff? Visit the <a href="./#staff">team directory</a> or use the community Discord linked on our homepage.</p>
+    </div>
+  </main>
+</body>
+</html>
