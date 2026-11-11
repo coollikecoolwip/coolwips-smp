@@ -412,9 +412,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 @media(max-width:600px){.staff-card .staff-bio{font-size:13px;line-height:1.7}.founder-dialog-story{line-height:1.75}}
 
 /* In memoriam — restrained and integrated beneath the staff directory */
-.staff-section{padding-bottom:5px}
-.memorial-section{padding:0 0 67px;background:transparent}
-.memorial-section .memorial-wrap{margin-top:0;padding-top:8px;padding-bottom:0;border-top:0}
+.staff-section{padding-bottom:0}
+.staff-section .staff-footnote{margin-top:9px}
+.memorial-section{padding:0 0 155px;background:transparent}
+.memorial-section .memorial-wrap{margin-top:0;padding-top:0;padding-bottom:0;border-top:0}
 .memorial-heading{display:flex;align-items:center;justify-content:center;gap:16px;max-width:720px;margin:0 auto 13px;color:#a88dbc;font:850 10px ui-monospace,Consolas,monospace;letter-spacing:.17em;text-align:center}
 .memorial-heading span:first-child,.memorial-heading span:last-child{height:1px;flex:1;background:linear-gradient(90deg,transparent,#bc8fd65a)}
 .memorial-heading span:last-child{transform:rotate(180deg)}
@@ -429,6 +430,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .memorial-title strong{color:#eac8f4;font-weight:920}
 .memorial-subtitle{font-size:13px;line-height:1.6;color:#c0b0cc;margin:0}
 .memorial-flourish{color:#d1b0dc;opacity:.52;font-size:24px;font-weight:400;flex:none;align-self:flex-start}
-@media(max-width:600px){.staff-section{padding-bottom:0}.memorial-section{padding-bottom:52px}.memorial-section .memorial-wrap{padding-top:4px}.memorial-heading{margin-bottom:11px;font-size:9px;letter-spacing:.11em;gap:10px}.memorial-card{gap:17px;padding:18px 19px;border-radius:14px}.memorial-avatar-frame{width:72px;height:72px}.memorial-eyebrow{font-size:9px;letter-spacing:.09em;margin-bottom:5px}.memorial-title{font-size:clamp(18px,5.5vw,24px);margin-bottom:5px}.memorial-subtitle{font-size:12px}.memorial-flourish{display:none}}
+@media(max-width:600px){.staff-section{padding-bottom:0}.staff-section .staff-footnote{margin-top:7px}.memorial-section{padding-bottom:115px}.memorial-section .memorial-wrap{padding-top:0}.memorial-heading{margin-bottom:11px;font-size:9px;letter-spacing:.11em;gap:10px}.memorial-card{gap:17px;padding:18px 19px;border-radius:14px}.memorial-avatar-frame{width:72px;height:72px}.memorial-eyebrow{font-size:9px;letter-spacing:.09em;margin-bottom:5px}.memorial-title{font-size:clamp(18px,5.5vw,24px);margin-bottom:5px}.memorial-subtitle{font-size:12px}.memorial-flourish{display:none}}
 @media(max-width:375px){.memorial-card{gap:13px;padding:15px 12px}.memorial-avatar-frame{width:60px;height:60px}.memorial-title{font-size:17px}.memorial-subtitle{font-size:11px}.memorial-heading{font-size:8px;letter-spacing:.06em}}
 @media(prefers-reduced-motion:reduce){.memorial-card,.memorial-avatar{animation:none!important;transition:none!important}}
