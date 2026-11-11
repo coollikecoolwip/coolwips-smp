@@ -6,7 +6,7 @@ window.COOLWIPS_HUB = {
   bedrockAddress: "domination-ashlee.tun.ply.gg",
   bedrockPort: 19132,
   bedrockConfirmed: false,
-  statsUrl: "assets/data/players.json",
+  reportsEmail: "admin@coolwip.xyz", // Existing Amelu default mailbox; switch to reports@ after creating it.\n  statsUrl: "assets/data/players.json",
   marketUrl: "assets/data/market.json",
   updatesUrl: "assets/data/updates.json",
   // Set both ONLY after deploying docs/SUPABASE_SETUP.sql with Row Level Security.
