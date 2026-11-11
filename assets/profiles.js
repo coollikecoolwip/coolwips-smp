@@ -25,7 +25,7 @@
       name: 'Orangemike',
       role: 'ADMINISTRATOR',
       handle: '@4dbm',
-      image: 'assets/staff/orangemike.webp',
+      image: 'assets/staff/orangemike-og.webp',
       alt: "Orangemike's Discord avatar",
       bio: "Orangemike has spent countless hours moderating CoolWips SMP—supporting players, helping the community, and keeping everything organized.",
       story: "Behind the chaos of anarchy-style survival is a team that keeps the community running. Orangemike has dedicated countless hours to moderating CoolWips SMP, helping players navigate issues and giving the server a steady hand behind the scenes. As an Administrator, he's an important part of the team that makes the experience work beyond the game itself."
