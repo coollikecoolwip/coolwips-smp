@@ -423,3 +423,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .memorial-subtitle{font-size:12px;line-height:1.65;color:#bca6cb;margin:0}
 @media(max-width:550px){.memorial-wrap{margin-top:22px;padding-top:20px}.memorial-card{gap:14px;padding:17px 15px;border-radius:13px}.memorial-avatar{width:65px;height:65px}.memorial-eyebrow{font-size:9px;letter-spacing:.07em}.memorial-title{font-size:17px}.memorial-subtitle{font-size:11px}}
 @media(max-width:340px){.memorial-card{gap:11px;padding:13px 10px}.memorial-avatar{width:54px;height:54px}.memorial-title{font-size:15px}}
+
+/* Memorial placed immediately after the staff team, before joining details. */
+.staff-section{padding-bottom:24px}
+.memorial-section{padding:0 0 80px;background:transparent}
+.memorial-section .memorial-wrap{margin-top:0;padding-top:25px}
+@media(max-width:600px){.staff-section{padding-bottom:12px}.memorial-section{padding-bottom:64px}}
