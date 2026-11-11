@@ -8,6 +8,7 @@
 <link rel="icon" type="image/webp" href="assets/coolwips-logo-v2.webp">
 <link rel="canonical" href="https://coolwip.xyz/hub.html">
 <link rel="stylesheet" href="assets/hub.css?v=1">
+<link rel="stylesheet" href="assets/hub-polish.css?v=1">
 <title>Player Hub | CoolWips SMP</title>
 </head>
 <body>
@@ -16,29 +17,45 @@
   <a class="brand" href="./" aria-label="CoolWips SMP home"><img src="assets/coolwips-logo-v2.webp" alt="" width="45" height="45"><span>COOL<strong>WIPS</strong><small>SMP / PLAYER HUB</small></span></a>
   <nav class="top-links" aria-label="Quick links">
     <a href="./">Home</a>
-    <a href="https://webmail.amelu.org/" target="_blank" rel="noopener noreferrer">Staff Email ↗</a>
+    <a class="top-email" href="https://webmail.amelu.org/" target="_blank" rel="noopener noreferrer">Staff email</a>
+    <a class="top-join" href="#join">Join server</a>
     <a class="discord" href="https://discord.gg/KDA3Z7n954" target="_blank" rel="noopener noreferrer">Discord ↗</a>
   </nav>
 </header>
+<div class="mobile-switcher">
+  <label for="hub-section-select">Go to</label>
+  <select id="hub-section-select" aria-label="Choose Player Hub section">
+    <option value="status">Server status</option>
+    <option value="join">How to join</option>
+    <option value="leaderboards">Leaderboards</option>
+    <option value="market">Economy market</option>
+    <option value="players">Player profiles</option>
+    <option value="reports">Reports &amp; appeals</option>
+    <option value="staff">Staff dashboard</option>
+    <option value="updates">News &amp; events</option>
+  </select>
+</div>
 <div class="layout">
-<nav class="side" aria-label="Player hub sections">
-  <p class="side-label">EXPLORE</p>
-  <a data-tab="status" href="#status">◉ <span>Live Status</span></a>
-  <a data-tab="join" href="#join">↗ <span>Join Server</span></a>
-  <a data-tab="leaderboards" href="#leaderboards">▤ <span>Leaderboards</span></a>
-  <a data-tab="market" href="#market">◇ <span>Economy Market</span></a>
-  <a data-tab="players" href="#players">♙ <span>Player Profiles</span></a>
-  <a data-tab="reports" href="#reports">⚑ <span>Reports &amp; Appeals</span></a>
-  <a data-tab="staff" href="#staff">⚙ <span>Staff Dashboard</span></a>
-  <a data-tab="updates" href="#updates">▧ <span>News &amp; Events</span></a>
+<nav class="side" aria-label="Player Hub sections">
+  <p class="side-label">START HERE</p>
+  <a data-tab="status" href="#status"><svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg><span>Server status</span></a>
+  <a data-tab="join" href="#join"><svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h14m-5-5 5 5-5 5"/><path d="M5 5h4M5 19h4"/></svg><span>How to join</span></a>
+  <p class="side-label">PLAYERS &amp; ECONOMY</p>
+  <a data-tab="leaderboards" href="#leaderboards"><svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18M5 20v-7h4v7m2 0V6h4v14m2 0v-9h4v9"/></svg><span>Leaderboards</span></a>
+  <a data-tab="market" href="#market"><svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="11" r="5"/><path d="M14 6a5 5 0 1 1-1 10M7 11h4"/></svg><span>Economy market</span></a>
+  <a data-tab="players" href="#players"><svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20v-2a8 8 0 0 1 16 0v2"/></svg><span>Player profiles</span></a>
+  <p class="side-label">COMMUNITY &amp; STAFF</p>
+  <a data-tab="reports" href="#reports"><svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4m0 1c4-3 8 3 14 0v11c-6 3-10-3-14 0"/></svg><span>Reports &amp; appeals</span></a>
+  <a data-tab="staff" href="#staff"><svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 20 6v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4Z"/><path d="m9 12 2 2 4-4"/></svg><span>Staff dashboard</span></a>
+  <a data-tab="updates" href="#updates"><svg class="side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18M7 14h5"/></svg><span>News &amp; events</span></a>
   <div class="side-bottom"><span class="dot"></span> Java + Bedrock crossplay</div>
 </nav>
 <main id="main" class="main">
 <section class="hero">
- <div class="eyebrow">COOLWIPS SMP / CONTROL CENTER</div>
- <h1>The <em>Player Hub.</em></h1>
- <p>Everything you need for CoolWips SMP in one place. Live server checks, joining, economy, profiles, community updates, and staff support.</p>
- <div class="hero-actions"><a class="action primary" href="#join">Join the SMP</a><a class="action secondary" href="#status">Server Status</a></div>
+ <div class="eyebrow">COOLWIPS SMP / PLAYER DASHBOARD</div>
+ <h1>Everything CoolWips.<br><em>One place.</em></h1>
+ <p>Check server status, copy your IP, explore player stats, and find support without hunting through Discord channels.</p>
+ <div class="hero-actions"><a class="action primary" href="#join">Get server IPs →</a><a class="action secondary" href="#reports">Need help?</a></div>
 </section>
 <div class="notice-global" id="global-notice" role="status" aria-live="polite" hidden></div>
 <section id="status" class="view" aria-labelledby="status-title">
@@ -97,4 +114,5 @@
 </main></div>
 <script src="assets/hub-config.js?v=2"></script>
 <script src="assets/hub.js?v=3" defer></script>
+<script src="assets/hub-navigation.js?v=1" defer></script>
 </body></html>
