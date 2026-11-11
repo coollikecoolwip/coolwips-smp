@@ -1,11 +1,10 @@
 /* Public website settings. NEVER put server tokens, passwords, service-role keys, or other secrets here. */
 window.COOLWIPS_HUB = {
   javaAddress: "play.coolwip.xyz",
-  // Replace with your confirmed new Playit Bedrock custom hostname and public UDP port.
-  // The older address below remains the fallback until that hostname is supplied.
-  bedrockAddress: "domination-ashlee.tun.ply.gg",
+  // Public Bedrock custom hostname. Keep the port in sync with your Playit tunnel.
+  bedrockAddress: "bedrock.coolwip.xyz",
   bedrockPort: 19132,
-  bedrockConfirmed: false,
+  bedrockConfirmed: true,
   reportsEmail: "admin@coolwip.xyz", // Existing Amelu default mailbox; switch to reports@ after creating it.
   statsUrl: "assets/data/players.json",
   marketUrl: "assets/data/market.json",
