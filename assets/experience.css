@@ -433,3 +433,18 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 @media(max-width:600px){.staff-section{padding-bottom:0}.staff-section .staff-footnote{margin-top:7px}.memorial-section{padding-bottom:115px}.memorial-section .memorial-wrap{padding-top:0}.memorial-heading{margin-bottom:11px;font-size:9px;letter-spacing:.11em;gap:10px}.memorial-card{gap:17px;padding:18px 19px;border-radius:14px}.memorial-avatar-frame{width:72px;height:72px}.memorial-eyebrow{font-size:9px;letter-spacing:.09em;margin-bottom:5px}.memorial-title{font-size:clamp(18px,5.5vw,24px);margin-bottom:5px}.memorial-subtitle{font-size:12px}.memorial-flourish{display:none}}
 @media(max-width:375px){.memorial-card{gap:13px;padding:15px 12px}.memorial-avatar-frame{width:60px;height:60px}.memorial-title{font-size:17px}.memorial-subtitle{font-size:11px}.memorial-heading{font-size:8px;letter-spacing:.06em}}
 @media(prefers-reduced-motion:reduce){.memorial-card,.memorial-avatar{animation:none!important;transition:none!important}}
+
+
+/* Memorial belongs above the divider, directly beneath staff, not beneath a separator */
+.staff-section{padding-bottom:0!important}
+.staff-section .staff-footnote{margin-bottom:0}
+.memorial-section{padding-top:0;padding-bottom:58px}
+.memorial-section .memorial-wrap{border-top:0!important;box-shadow:none;padding-top:16px!important}
+.memorial-divider{width:min(100%,1160px);height:1px;margin:54px auto 0;background:linear-gradient(90deg,transparent,#aa83c754 10%,#bd8cda5c 50%,#aa83c754 90%,transparent)}
+#memorial{scroll-margin-top:90px}
+@media(max-width:600px){
+ .staff-section{padding-bottom:0!important}
+ .memorial-section{padding-bottom:55px}
+ .memorial-section .memorial-wrap{padding-top:13px!important}
+ .memorial-divider{margin-top:36px;width:calc(100% - 32px)}
+}
