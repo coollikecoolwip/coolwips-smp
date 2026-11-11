@@ -410,3 +410,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .founder-dialog-bio{line-height:1.65}
 .founder-dialog-story{line-height:1.84}
 @media(max-width:600px){.staff-card .staff-bio{font-size:13px;line-height:1.7}.founder-dialog-story{line-height:1.75}}
+
+/* Respectful, low-motion footer remembrance for 86va */
+.memorial-wrap{margin-top:28px;border-top:1px solid #b883dd35;padding-top:27px;padding-bottom:10px}
+.memorial-card{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;gap:22px;margin:0 auto;max-width:550px;padding:20px 24px;border:1px solid #bc83e54b;border-radius:17px;background:linear-gradient(135deg,#291837a8,#110a1c 85%);box-shadow:0 8px 34px #0003;text-align:left;overflow:hidden}
+.memorial-halo{position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 25% 25%,#d99be719,transparent 70%);pointer-events:none}
+.memorial-avatar{flex:none;width:82px;height:82px;object-fit:cover;border:2px solid #d6b2f1b5;border-radius:50%;box-shadow:0 0 0 5px #a66ad022,0 0 22px #c689e13b;background:#f2f2f4}
+.memorial-content{min-width:0}
+.memorial-eyebrow{display:block;color:#c5a3dc;font:850 10px ui-monospace,Consolas,monospace;letter-spacing:.15em;margin-bottom:6px}
+.memorial-title{font-size:clamp(16px,3vw,22px);font-weight:750;line-height:1.3;letter-spacing:-.025em;color:#f5e5ff;margin:0 0 6px}
+.memorial-title strong{color:#ebc3ff;font-weight:950}
+.memorial-subtitle{font-size:12px;line-height:1.65;color:#bca6cb;margin:0}
+@media(max-width:550px){.memorial-wrap{margin-top:22px;padding-top:20px}.memorial-card{gap:14px;padding:17px 15px;border-radius:13px}.memorial-avatar{width:65px;height:65px}.memorial-eyebrow{font-size:9px;letter-spacing:.07em}.memorial-title{font-size:17px}.memorial-subtitle{font-size:11px}}
+@media(max-width:340px){.memorial-card{gap:11px;padding:13px 10px}.memorial-avatar{width:54px;height:54px}.memorial-title{font-size:15px}}
