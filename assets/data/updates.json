@@ -1,0 +1,17 @@
+{
+  "updates": [
+    {
+      "date": "2026-11-11",
+      "category": "Website",
+      "title": "CoolWips SMP Player Hub",
+      "description": "A central place for server status, connection details, public statistics, support, and community updates. Live stats are shown when the server publishes them."
+    },
+    {
+      "date": "2026-11-11",
+      "category": "Community",
+      "title": "Custom domain and email setup",
+      "description": "The public website uses coolwip.xyz. Custom-domain staff email is configured through Amelu."
+    }
+  ],
+  "events": []
+}
