@@ -1,6 +1,7 @@
 /* Public website settings. NEVER put server tokens, passwords, service-role keys, or other secrets here. */
 window.COOLWIPS_HUB = {
   javaAddress: "play.coolwip.xyz",
+  javaVersion: "26.2",
   // Public Bedrock custom hostname. Keep the port in sync with your Playit tunnel.
   bedrockAddress: "bedrock.coolwip.xyz",
   bedrockPort: 19132,
