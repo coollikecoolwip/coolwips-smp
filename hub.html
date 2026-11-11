@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0714">
+<meta name="description" content="CoolWips SMP player hub: live Minecraft server status, Java and Bedrock joining, leaderboards, economy, profiles, reports, staff tools, and server announcements.">
+<link rel="icon" type="image/webp" href="assets/coolwips-logo-v2.webp">
+<link rel="canonical" href="https://coolwip.xyz/hub.html">
+<link rel="stylesheet" href="assets/hub.css?v=1">
+<title>Player Hub | CoolWips SMP</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="CoolWips SMP home"><img src="assets/coolwips-logo-v2.webp" alt="" width="45" height="45"><span>COOL<strong>WIPS</strong><small>SMP / PLAYER HUB</small></span></a>
+  <nav class="top-links" aria-label="Quick links">
+    <a href="./">Home</a>
+    <a href="https://webmail.amelu.org/" target="_blank" rel="noopener noreferrer">Staff Email ↗</a>
+    <a class="discord" href="https://discord.gg/KDA3Z7n954" target="_blank" rel="noopener noreferrer">Discord ↗</a>
+  </nav>
+</header>
+<div class="layout">
+<nav class="side" aria-label="Player hub sections">
+  <p class="side-label">EXPLORE</p>
+  <a data-tab="status" href="#status">◉ <span>Live Status</span></a>
+  <a data-tab="join" href="#join">↗ <span>Join Server</span></a>
+  <a data-tab="leaderboards" href="#leaderboards">▤ <span>Leaderboards</span></a>
+  <a data-tab="market" href="#market">◇ <span>Economy Market</span></a>
+  <a data-tab="players" href="#players">♙ <span>Player Profiles</span></a>
+  <a data-tab="reports" href="#reports">⚑ <span>Reports &amp; Appeals</span></a>
+  <a data-tab="staff" href="#staff">⚙ <span>Staff Dashboard</span></a>
+  <a data-tab="updates" href="#updates">▧ <span>News &amp; Events</span></a>
+  <div class="side-bottom"><span class="dot"></span> Java + Bedrock crossplay</div>
+</nav>
+<main id="main" class="main">
+<section class="hero">
+ <div class="eyebrow">COOLWIPS SMP / CONTROL CENTER</div>
+ <h1>The <em>Player Hub.</em></h1>
+ <p>Everything you need for CoolWips SMP in one place. Live server checks, joining, economy, profiles, community updates, and staff support.</p>
+ <div class="hero-actions"><a class="action primary" href="#join">Join the SMP</a><a class="action secondary" href="#status">Server Status</a></div>
+</section>
+<div class="notice-global" id="global-notice" role="status" aria-live="polite" hidden></div>
+<section id="status" class="view" aria-labelledby="status-title">
+ <div class="section-head"><div><div class="kicker">01 / CONNECTIVITY</div><h2 id="status-title">Live server status</h2><p>Public status checks, updated on request and periodically. An unavailable check does not necessarily mean the server is offline.</p></div><button class="outline" id="refresh-status" type="button">↻ Refresh</button></div>
+ <div class="grid two">
+  <article class="panel status-card"><div class="panel-top"><div class="edition">JAVA EDITION</div><span class="status-pill" id="java-state">Checking…</span></div><h3 id="java-address">play.coolwip.xyz</h3><div class="stat-line"><strong id="java-count">—</strong><span>players online</span></div><div class="minor" id="java-version">Checking version…</div><button class="copy" data-copy-address="java" type="button">Copy Java address</button></article>
+  <article class="panel status-card"><div class="panel-top"><div class="edition">BEDROCK EDITION</div><span class="status-pill" id="bedrock-state">Checking…</span></div><h3 id="bedrock-address">—</h3><div class="stat-line"><strong id="bedrock-count">—</strong><span>players online</span></div><div class="minor" id="bedrock-version">Checking version…</div><button class="copy" data-copy-address="bedrock" type="button">Copy Bedrock address</button></article>
+ </div><p class="data-note" id="status-note">Server checks use the public mcstatus.io API; cached results or network restrictions may affect accuracy.</p>
+</section>
+<section id="join" class="view" aria-labelledby="join-title" hidden>
+ <div class="section-head"><div><div class="kicker">02 / PLAY</div><h2 id="join-title">Join CoolWips SMP</h2><p>Choose your edition. Java and Bedrock connect to the same Minecraft world through Geyser and Floodgate.</p></div></div>
+ <div class="grid two">
+  <article class="panel"><div class="edition">JAVA EDITION</div><h3>PC / Java</h3><div class="ip" id="join-java">play.coolwip.xyz</div><button class="copy" data-copy-address="java" type="button">Copy server address</button><p class="minor">Multiplayer → Add Server → paste the address.</p></article>
+  <article class="panel"><div class="edition">BEDROCK EDITION</div><h3>Mobile / Windows / Console</h3><div class="ip" id="join-bedrock">—</div><p class="minor" id="join-bedrock-port">Port: 19132</p><button class="copy" data-copy-address="bedrock" type="button">Copy server address</button><p class="minor">Play → Servers → Add Server. Some consoles need a third-party connector.</p></article>
+ </div>
+ <article class="panel info"><h3>Connecting from a console?</h3><p>Use the <a href="./#console">console joining guide</a>. If your Minecraft account must be linked to Discord before joining, follow the <a href="./#link-account">account linking steps</a>.</p></article>
+</section>
+<section id="leaderboards" class="view" aria-labelledby="leaderboards-title" hidden>
+ <div class="section-head"><div><div class="kicker">03 / COMPETITION</div><h2 id="leaderboards-title">Player leaderboards</h2><p>Rankings for money, kills, and playtime. Only data published by the server is displayed.</p></div></div>
+ <div class="toolbar"><label class="sr-only" for="leaderboard-search">Search players</label><input id="leaderboard-search" type="search" placeholder="Search a username…"><label class="sr-only" for="leaderboard-sort">Sort by</label><select id="leaderboard-sort"><option value="balance">Highest balance</option><option value="kills">Most kills</option><option value="playtimeHours">Most playtime</option></select></div>
+ <div class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>Rank</th><th>Player</th><th>Balance</th><th>Kills</th><th>Playtime</th></tr></thead><tbody id="leaderboard-rows"></tbody></table></div><p class="empty" id="leaderboard-empty">Player statistics haven't been connected yet.</p></div>
+ <p class="data-note" id="leaderboard-updated">Waiting for a public statistics export from the Minecraft server.</p>
+</section>
+<section id="market" class="view" aria-labelledby="market-title" hidden>
+ <div class="section-head"><div><div class="kicker">04 / ECONOMY</div><h2 id="market-title">Economy market</h2><p>Explore published buy and sell prices. Price history and change indicators appear when supplied by the economy export.</p></div></div>
+ <div class="toolbar"><label class="sr-only" for="market-search">Search items</label><input id="market-search" type="search" placeholder="Search an item…"><label class="sr-only" for="market-category">Category</label><select id="market-category"><option value="">All categories</option></select></div>
+ <div class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>Item</th><th>Category</th><th>Buy</th><th>Sell</th><th>Change</th></tr></thead><tbody id="market-rows"></tbody></table></div><p class="empty" id="market-empty">Live economy prices have not been connected yet.</p></div>
+ <p class="data-note" id="market-updated">Waiting for a public economy export from the Minecraft server.</p>
+</section>
+<section id="players" class="view" aria-labelledby="players-title" hidden>
+ <div class="section-head"><div><div class="kicker">05 / PLAYERS</div><h2 id="players-title">Player profiles</h2><p>Search a Minecraft Java username to view its skin and any public statistics shared by the server. Hidden bases and private locations are never displayed.</p></div></div>
+ <form class="toolbar" id="player-form"><label class="sr-only" for="player-search">Minecraft username</label><input id="player-search" maxlength="16" required pattern="[A-Za-z0-9_]{3,16}" placeholder="Minecraft username" autocomplete="off"><button class="primary small" type="submit">Look up</button></form>
+ <div class="panel profile" id="player-profile" hidden><img id="player-avatar" src="assets/coolwips-logo-v2.webp" width="104" height="104" alt="Minecraft player avatar"><div><h3 id="player-name"></h3><p id="player-summary"></p><div class="profile-stats" id="player-stats"></div></div></div>
+ <p class="data-note" id="player-help">Player skins come from a public third-party avatar service. Stats are shown only when supplied by CoolWips SMP.</p>
+</section>
+<section id="reports" class="view" aria-labelledby="reports-title" hidden>
+ <div class="section-head"><div><div class="kicker">06 / SUPPORT</div><h2 id="reports-title">Reports &amp; appeals</h2><p>Submit a player report, claim or waypoint issue, or moderation appeal. Never include passwords, home addresses, or other sensitive personal information.</p></div></div>
+ <div class="grid two">
+  <article class="panel"><h3>Submit a report</h3><form id="report-form" class="form-stack"><label>Issue type<select id="report-category" required><option value="player">Player report</option><option value="appeal">Ban / punishment appeal</option><option value="claim">Claim issue</option><option value="waypoint">Waypoint issue</option><option value="other">Other</option></select></label><label>Your Minecraft username<input id="report-username" maxlength="32" required placeholder="Your in-game name"></label><label>What happened?<textarea id="report-details" required minlength="12" maxlength="2000" rows="6" placeholder="Describe the issue, dates, and relevant Minecraft usernames."></textarea></label><button class="primary" type="submit" id="submit-report">Submit report</button><p class="minor" id="report-mode">Report submissions use email until a private ticket database is connected.</p><output id="report-result" aria-live="polite"></output></form></article>
+  <article class="panel"><h3>Track a ticket</h3><p class="minor">When the secure ticket backend is configured, you will receive a private reference code for status checks.</p><form id="ticket-form" class="form-stack"><label>Ticket reference<input id="ticket-code" maxlength="48" autocomplete="off" placeholder="Ticket code"></label><button class="outline" type="submit">Check status</button><output id="ticket-result" aria-live="polite"></output></form><div class="mini-rule"></div><p>Prefer Discord? <a href="https://discord.gg/KDA3Z7n954" target="_blank" rel="noopener noreferrer">Contact staff in the CoolWips SMP Discord ↗</a></p></article>
+ </div>
+</section>
+<section id="staff" class="view" aria-labelledby="staff-title" hidden>
+ <div class="section-head"><div><div class="kicker">07 / MODERATION</div><h2 id="staff-title">Staff dashboard</h2><p>Private report review and ticket status updates. Authentication is separate from Minecraft and Amelu passwords.</p></div></div>
+ <div class="grid two">
+ <article class="panel" id="staff-login-panel"><h3>Staff sign in</h3><form id="staff-auth-form" class="form-stack"><label>Staff dashboard email<input type="email" id="staff-email" required autocomplete="username"></label><label>Password<input type="password" id="staff-password" required autocomplete="current-password"></label><button class="primary" type="submit">Sign in securely</button><output id="staff-auth-message" aria-live="polite"></output></form><p class="minor">Your staff dashboard requires Supabase Auth and verified staff permissions. This form never sends credentials to GitHub Pages.</p></article>
+ <article class="panel"><h3>Staff tools</h3><p>View submitted tickets, set review status, add internal notes, and manage responses once the secure backend is connected.</p><p class="minor">Staff email is hosted separately by Amelu and is not stored on this site.</p><a class="action secondary" href="https://webmail.amelu.org/" target="_blank" rel="noopener noreferrer">Open Staff Email ↗</a></article>
+ </div>
+ <article class="panel" id="staff-tickets-panel" hidden><div class="panel-top"><h3>Assigned report queue</h3><button class="outline" id="staff-signout" type="button">Sign out</button></div><p id="staff-queue-status" aria-live="polite"></p><div class="ticket-grid" id="staff-ticket-list"></div></article>
+</section>
+<section id="updates" class="view" aria-labelledby="updates-title" hidden>
+ <div class="section-head"><div><div class="kicker">08 / COMMUNITY</div><h2 id="updates-title">News &amp; events</h2><p>Official CoolWips SMP website announcements and scheduled community events.</p></div></div>
+ <div class="grid two"><div><h3 class="column-label">Latest updates</h3><div id="updates-list" class="feed"></div></div><div><h3 class="column-label">Upcoming events</h3><div id="events-list" class="feed"></div></div></div>
+</section>
+<footer class="hub-footer"><span>© <span id="year"></span> CoolWips SMP</span><span>Community-made • Not affiliated with Mojang or Microsoft</span><a href="./">Return to main site</a></footer>
+</main></div>
+<script src="assets/hub-config.js?v=1"></script>
+<script src="assets/hub.js?v=1" defer></script>
+</body></html>
