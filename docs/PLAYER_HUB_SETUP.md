@@ -3,7 +3,7 @@
 Live page: `https://coolwip.xyz/hub.html`. Site is static and remains on GitHub Pages.
 
 ## Ready immediately
-- Status: Java `play.coolwip.xyz`, Bedrock `bedrock.coolwip.xyz:19132` (custom Playit hostname provided by the owner). If the public Bedrock UDP port changes, edit `assets/hub-config.js` and homepage joining details. API checks are via mcstatus.io and can show unavailable for NetherNet/Playit even if players can join.
+- Status: Java `play.coolwip.xyz`, Bedrock `bedrock.coolwip.xyz:19132` (custom Playit hostname provided by the owner). If the public Bedrock UDP port changes, edit `assets/hub-config.js` and homepage joining details. Java checks use mcstatus.io; Bedrock checks use the NetherNet-aware iceFetch `/api/info` endpoint. Bedrock checks may show “Status unavailable” if the external signaling endpoint is not reachable or the service cannot be read from a browser. Treat that as unknown, not offline.
 - Join guide/copy, search/filter UI, profile avatar search, published news/events.
 - Report submission falls back to a mail draft (not a saved ticket) while the secure backend isn't configured. The target `reports@coolwip.xyz` must be a real mailbox in Amelu before relying on this method.
 - The staff portal remains locked until database authentication is configured. Staff Email opens Amelu Webmail; no mailbox passwords touch GitHub Pages.
@@ -42,5 +42,5 @@ Edit `assets/data/updates.json`. Each `updates` entry has `date`, `category`, `t
 ## Testing
 1. Verify `coolwip.xyz` DNS/HTTPS in GitHub Pages Settings. Do not alter MX/SPF/DKIM/DMARC for this site.
 2. Test `hub.html#status`, `#join`, `#leaderboards`, `#market`, `#players`, `#reports`, `#staff`, `#updates` on desktop and mobile.
-3. If Bedrock status says "unavailable", test actual Minecraft Bedrock connection before assuming the server is offline. NetherNet-based tunnels may not answer public UDP status probes.
+3. If Bedrock says “Status unavailable”, test a real Bedrock join before assuming the server is down. Modern NetherNet tunnels do not respond to legacy RakNet UDP pings, and third-party probes can fail.
 4. Keep player coordinates, homes, claim locations, IPs, passwords and auth tokens private.
