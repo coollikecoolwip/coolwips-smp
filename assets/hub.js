@@ -19,14 +19,34 @@ async function copy(value){try{await navigator.clipboard.writeText(value);notice
 document.querySelectorAll('[data-copy-address]').forEach(btn=>btn.addEventListener('click',()=>{const which=btn.dataset.copyAddress;const host=which==='java'?cfg.javaAddress:cfg.bedrockAddress;if(host)copy(host);else notice('Server address has not been configured')}));
 async function fetchJson(url,timeout=12000){const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),timeout);try{const response=await fetch(url,{signal:ctrl.signal,cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);return await response.json()}finally{clearTimeout(timer)}}
 async function checkEdition(edition,host){const state=$(edition+'-state'),count=$(edition+'-count'),version=$(edition+'-version');state.className='status-pill';state.textContent='Checking…';count.textContent='—';version.textContent='Contacting server status service…';if(!host){state.textContent='Not configured';version.textContent='Add an address in hub-config.js';return}
-const address=edition==='bedrock'&&cfg.bedrockPort?host+':'+cfg.bedrockPort:host;
-try{const result=await fetchJson('https://api.mcstatus.io/v2/status/'+edition+'/'+encodeURIComponent(address)+'?query=false',15000);
+if(edition==='bedrock'){
+  // NetherNet signaling is HTTP(S), not the older RakNet UDP server-list ping.
+  // Do not interpret a failed external checker as proof that gameplay is offline.
+  const port=Number(cfg.bedrockPort)||19132;
+  const url='https://icefetch.tools.kt04.com/api/info?host='+encodeURIComponent(host)+'&port='+encodeURIComponent(port);
+  try{
+    const data=await fetchJson(url,15000);
+    if(data&&data.ok===true&&data.info&&typeof data.info==='object'&&Number(data.status)>=200&&Number(data.status)<300){
+      state.textContent='Online';state.classList.add('online');
+      count.textContent=Number.isFinite(Number(data.info.players))?fmtNumber(data.info.players):'—';
+      version.textContent=data.info.version?'Version: '+String(data.info.version):'NetherNet signaling responding';
+    }else{
+      state.textContent='Status unavailable';
+      version.textContent='NetherNet could not be verified. Try connecting in Minecraft.';
+    }
+  }catch(err){
+    state.textContent='Status unavailable';
+    version.textContent='NetherNet check unavailable. The server may still be online.';
+  }
+  return;
+}
+try{const result=await fetchJson('https://api.mcstatus.io/v2/status/java/'+encodeURIComponent(host)+'?query=false',15000);
 if(result.online===true){state.textContent='Online';state.classList.add('online');count.textContent=fmtNumber(result.players&&result.players.online);const ver=(result.version&&typeof result.version==='object'&&(result.version.name_clean||result.version.name_raw||result.version.name))||(typeof result.version==='string'?result.version:'');version.textContent=ver?'Version: '+ver:'Server responding';}
 else if(result.online===false){state.textContent='Offline (check)';state.classList.add('offline');version.textContent='Status API could not reach the server';}
 else{state.textContent='Unavailable';version.textContent='No reliable result available';}}
 catch(err){state.textContent='Unavailable';version.textContent='Could not complete public status check';}
 }
-async function refreshStatus(){const btn=$('refresh-status');btn.disabled=true;await Promise.all([checkEdition('java',cfg.javaAddress),checkEdition('bedrock',cfg.bedrockAddress)]);btn.disabled=false;$('status-note').textContent='Last checked: '+new Date().toLocaleTimeString()+'. Status from the public mcstatus.io service (which may cache or be unable to probe Playit tunnels).';}
+async function refreshStatus(){const btn=$('refresh-status');btn.disabled=true;await Promise.all([checkEdition('java',cfg.javaAddress),checkEdition('bedrock',cfg.bedrockAddress)]);btn.disabled=false;$('status-note').textContent='Last checked: '+new Date().toLocaleTimeString()+'. Java status: mcstatus.io. Bedrock NetherNet status: iceFetch. A failed Bedrock check does not prove the server is offline.';}
 $('refresh-status').addEventListener('click',refreshStatus);refreshStatus();setInterval(()=>{if(document.visibilityState==='visible')refreshStatus()},180000);
 async function loadPublicFeeds(){const [p,m,u]=await Promise.allSettled([fetchJson(cfg.statsUrl),fetchJson(cfg.marketUrl),fetchJson(cfg.updatesUrl)]);if(p.status==='fulfilled'&&Array.isArray(p.value.players)){model.players=p.value.players.filter(v=>v&&typeof v.name==='string');$('leaderboard-updated').textContent=p.value.updatedAt?'Statistics updated '+safeDate(p.value.updatedAt):'No player statistics have been published yet.';}
 if(m.status==='fulfilled'&&Array.isArray(m.value.items)){model.market=m.value.items.filter(v=>v&&typeof v.name==='string');$('market-updated').textContent=m.value.updatedAt?'Market prices updated '+safeDate(m.value.updatedAt):'No market prices have been published yet.';}
