@@ -5,8 +5,9 @@ Live page: `https://coolwip.xyz/hub.html`. Site is static and remains on GitHub 
 ## Ready immediately
 - Status: Java `play.coolwip.xyz`, Bedrock `bedrock.coolwip.xyz:19132` (custom Playit hostname provided by the owner). If the public Bedrock UDP port changes, edit `assets/hub-config.js` and homepage joining details. Java checks use mcstatus.io; Bedrock checks use the NetherNet-aware iceFetch `/api/info` endpoint. Bedrock checks may show “Status unavailable” if the external signaling endpoint is not reachable or the service cannot be read from a browser. Treat that as unknown, not offline.
 - Join guide/copy, search/filter UI, profile avatar search, published news/events.
-- Report submission falls back to a mail draft (not a saved ticket) while the secure backend isn't configured. The target `reports@coolwip.xyz` must be a real mailbox in Amelu before relying on this method.
+- Report submission falls back to a mail draft (not a saved ticket) while the secure backend isn't configured. The configured recipient is `admin@coolwip.xyz`; verify that mailbox exists in Amelu before relying on it.
 - The staff portal remains locked until database authentication is configured. Staff Email opens Amelu Webmail; no mailbox passwords touch GitHub Pages.
+- The staff email composer in this feature branch sends one plain-text message at a time through the authenticated `send-staff-email` Edge Function. The configured Amelu mailbox is the sender; no sender address can be supplied by the browser. Attachments and bulk recipients are not supported.
 
 ## Publish real player statistics
 Edit `assets/data/players.json`:
@@ -37,7 +38,10 @@ Edit `assets/data/updates.json`. Each `updates` entry has `date`, `category`, `t
 5. In Auth settings, configure permitted app origins and limit unsolicited account creation; test staff sign-in and both a public report and ticket lookup before sharing widely.
 6. The public report form uses `submit_report` (returns a private code). Visitors only see status via `report_status`; the full report is stored in a private table with Row Level Security. Only manually approved staff accounts can read and update it.
 7. For high-volume deployment add CAPTCHA/Cloudflare Turnstile validation in an Edge Function, request throttling, and audit logs; the basic SQL throttle alone is not abuse-proof.
-8. Staff passwords/tokens are never saved in this repository; dashboard sessions stay in browser memory and end on reload. For email, staff continue using the secure Amelu login.
+8. Staff passwords/tokens are never saved in this repository; dashboard sessions stay in browser memory and end on reload.
+9. Apply `docs/SUPABASE_EMAIL_SETUP.sql` after `docs/SUPABASE_SETUP.sql`. Deploy `supabase/functions/send-staff-email/index.ts` with JWT verification enabled.
+10. In Supabase Edge Function Secrets, add `AMELU_API_KEY` and `AMELU_MAILBOX_ID`. Create the Amelu API key under My Account → API Keys and use the ID of the one mailbox that should send. Amelu API keys act with the creator's organization role and are server-only; do not put the key in `assets/hub-config.js`, GitHub, browser code, or chat. The Edge Function keeps the key in server secrets.
+11. Configure only `https://coolwip.xyz` and `https://www.coolwip.xyz` as allowed web origins (already enforced by the function), then test sign-in and a one-recipient message. The site limits each staff user to 10 sends per hour and the whole site to 50 per 24 hours; Amelu has its own daily limits too. Check Amelu Sent before retrying if a network error says the send could not be confirmed.
 
 ## Testing
 1. Verify `coolwip.xyz` DNS/HTTPS in GitHub Pages Settings. Do not alter MX/SPF/DKIM/DMARC for this site.
