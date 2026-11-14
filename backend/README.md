@@ -9,11 +9,11 @@ Run from a normal Windows account, not as Administrator:
 ```powershell
 Set-Location .\backend
 $env:BACKEND_HOST = '127.0.0.1'
-$env:BACKEND_PORT = '8787'
+$env:BACKEND_PORT = '48787'
 node .\server.mjs
 ```
 
-On that PC, open `http://127.0.0.1:8787/setup` once to create the owner login `admin@coolwip.xyz`. Choose a unique password of at least 16 characters. The setup page works only from localhost and closes after the first staff account is created.
+On that PC, open `http://127.0.0.1:48787/setup` once to create the owner login `admin@coolwip.xyz`. Choose a unique password of at least 16 characters. The setup page works only from localhost and closes after the first staff account is created.
 
 ## Email secret
 
@@ -23,7 +23,7 @@ Website sending is plain text, single-recipient, and limited locally to 10 attem
 
 ## Production routing
 
-The website files remain on GitHub Pages. Point `api.coolwip.xyz` to the Oracle public IP only after the Oracle Nginx reverse proxy reaches this API through WireGuard. In production bind the API to the Windows WireGuard address (expected `10.66.66.2`) and allow port 8787 only from the Oracle peer `10.66.66.1`. Do not expose port 8787 directly to the internet.
+The website files remain on GitHub Pages. Point `api.coolwip.xyz` to the Oracle public IP only after the Oracle Nginx reverse proxy reaches this API through WireGuard. The API now binds to the Windows WireGuard address `10.66.66.2` on port `48787`. Oracle Nginx terminates HTTPS for `api.coolwip.xyz` and proxies requests to that address through WireGuard; the API port is not published on the public interface.
 
 ## Data and email receiving
 
