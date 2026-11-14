@@ -1,15 +1,16 @@
-/* Public website settings. NEVER put server tokens, passwords, service-role keys, or other secrets here. */
+/* Public website settings. NEVER put server tokens, passwords, or API secrets here. */
 window.COOLWIPS_HUB = {
   javaAddress: "play.coolwip.xyz",
   javaVersion: "26.2",
-  // Public Bedrock custom hostname. Keep the port in sync with your Playit tunnel.
+  // Public Bedrock custom hostname. Keep the port in sync with the Playit tunnel.
   bedrockAddress: "bedrock.coolwip.xyz",
   bedrockPort: 19132,
   bedrockConfirmed: true,
-  reportsEmail: "admin@coolwip.xyz", // Existing Amelu default mailbox; switch to reports@ after creating it.
+  reportsEmail: "admin@coolwip.xyz",
   statsUrl: "assets/data/players.json",
   marketUrl: "assets/data/market.json",
   updatesUrl: "assets/data/updates.json",
-  supabaseUrl: "https://izygelgrgbkzhjsfcwve.supabase.co",
-  supabasePublishableKey: "sb_publishable_EwXuaG1eVWV1E_QGRVeWdQ_ngxby2ev"
+  // The existing client uses these compatibility property names; this URL is the self-hosted API.
+  supabaseUrl: "https://api.coolwip.xyz",
+  supabasePublishableKey: "coolwips-public-v1"
 };
