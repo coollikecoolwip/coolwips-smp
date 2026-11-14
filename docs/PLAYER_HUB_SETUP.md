@@ -33,9 +33,9 @@ Edit `assets/data/updates.json`. Each `updates` entry has `date`, `category`, `t
 ## Enable real report tickets and staff dashboard (optional, free-tier possible)
 1. Create a Supabase project at https://supabase.com . Review current usage limits and anti-spam measures.
 2. Run `docs/SUPABASE_SETUP.sql` in the SQL editor. **Inspect RLS/policies before enabling the public form.**
-3. Use Supabase Authentication to invite/create your staff users, then add approved user UUIDs to `public.staff_members` in the SQL editor. This is **not** their Amelu email password. Never grant access based on a guessed username or email.
+3. In Supabase Authentication, disable public sign-ups and invite only your staff users. Add each approved user's exact auth UUID to `public.staff_members` in the SQL editor. This is **not** their Amelu email password. Never grant access based on a guessed username or email.
 4. Copy the project URL and **publishable key** (not service_role, secret, or database password) into `assets/hub-config.js`.
-5. In Auth settings, configure permitted app origins and limit unsolicited account creation; test staff sign-in and both a public report and ticket lookup before sharing widely.
+5. Configure only the website origins in Auth settings, keep public sign-ups off, and test staff sign-in plus a public report and ticket lookup.
 6. The public report form uses `submit_report` (returns a private code). Visitors only see status via `report_status`; the full report is stored in a private table with Row Level Security. Only manually approved staff accounts can read and update it.
 7. For high-volume deployment add CAPTCHA/Cloudflare Turnstile validation in an Edge Function, request throttling, and audit logs; the basic SQL throttle alone is not abuse-proof.
 8. Staff passwords/tokens are never saved in this repository; dashboard sessions stay in browser memory and end on reload.
