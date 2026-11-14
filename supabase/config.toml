@@ -1,4 +1,0 @@
-[functions.send-staff-email]
-# The function validates the Supabase user token with auth.getUser and checks staff_members.
-# Keep gateway validation off for compatibility with project signing-key configurations.
-verify_jwt = false
