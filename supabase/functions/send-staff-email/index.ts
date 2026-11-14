@@ -115,12 +115,12 @@ Deno.serve(async (request) => {
   const to = typeof data.to === "string" ? data.to.trim() : "";
   const subject = typeof data.subject === "string" ? data.subject.trim() : "";
   const textBody = typeof data.textBody === "string" ? data.textBody.trim() : "";
-  const emailPattern = /^[^\\s@<>]+@[^\\s@<>]+\\.[^\\s@<>]+$/;
+  const emailPattern = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
   if (!emailPattern.test(to) || to.length > 254) return json({ error: "Enter one valid recipient email address." }, 400, origin);
-  if (!subject || subject.length > 180 || /[\\r\\n\\u0000-\\u001f\\u007f]/.test(subject)) {
+  if (!subject || subject.length > 180 || /[\r\n\u0000-\u001f\u007f]/.test(subject)) {
     return json({ error: "Subject must be 1–180 characters on one line." }, 400, origin);
   }
-  if (!textBody || textBody.length > 10000 || textBody.includes("\\u0000")) {
+  if (!textBody || textBody.length > 10000 || textBody.includes("\u0000")) {
     return json({ error: "Message must be 1–10,000 characters." }, 400, origin);
   }
 
@@ -132,19 +132,18 @@ Deno.serve(async (request) => {
 
   let providerResponse: Response;
   try {
-    providerResponse = await fetch(
-      `https://api.amelu.org/api/mailboxes/${encodeURIComponent(mailboxId)}/messages`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${ameluApiKey}`,
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({ to: [to], cc: [], subject, textBody }),
-        signal: AbortSignal.timeout(20000),
+    const providerUrl =
+      "https://api.amelu.org/api/mailboxes/" + encodeURIComponent(mailboxId) + "/messages";
+    providerResponse = await fetch(providerUrl, {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + ameluApiKey,
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-    );
+      body: JSON.stringify({ to: [to], cc: [], subject, textBody }),
+      signal: AbortSignal.timeout(20000),
+    });
   } catch {
     return json({ error: "Amelu did not confirm the send. Check the mailbox’s Sent folder before retrying." }, 502, origin);
   }
