@@ -10,8 +10,6 @@ window.COOLWIPS_HUB = {
   statsUrl: "assets/data/players.json",
   marketUrl: "assets/data/market.json",
   updatesUrl: "assets/data/updates.json",
-  // Set both ONLY after deploying docs/SUPABASE_SETUP.sql with Row Level Security.
-  // This is a PUBLIC key, not a service_role or secret key.
-  supabaseUrl: "",
-  supabasePublishableKey: ""
+  supabaseUrl: "https://izygelgrgbkzhjsfcwve.supabase.co",
+  supabasePublishableKey: "sb_publishable_EwXuaG1eVWV1E_QGRVeWdQ_ngxby2ev"
 };
