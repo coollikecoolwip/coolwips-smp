@@ -105,6 +105,17 @@
  <article class="panel"><h3>Staff tools</h3><p>View submitted tickets, set review status, add internal notes, and manage responses once the secure backend is connected.</p><p class="minor">Staff email is hosted separately by Amelu and is not stored on this site.</p><a class="action secondary" href="https://webmail.amelu.org/" target="_blank" rel="noopener noreferrer">Open Staff Email ↗</a></article>
  </div>
  <article class="panel" id="staff-tickets-panel" hidden><div class="panel-top"><h3>Assigned report queue</h3><button class="outline" id="staff-signout" type="button">Sign out</button></div><p id="staff-queue-status" aria-live="polite"></p><div class="ticket-grid" id="staff-ticket-list"></div></article>
+<article class="panel" id="staff-mail-panel" hidden>
+  <h3>Send staff email</h3>
+  <p class="minor">Messages are sent from the staff mailbox configured on the secure backend. Keep messages personal and one-to-one.</p>
+  <form id="staff-mail-form" class="form-stack">
+    <label>To<input type="email" id="staff-mail-to" maxlength="254" required autocomplete="email" placeholder="recipient@example.com"></label>
+    <label>Subject<input type="text" id="staff-mail-subject" maxlength="180" required></label>
+    <label>Message<textarea id="staff-mail-body" rows="8" maxlength="10000" required></textarea></label>
+    <button class="primary" type="submit" id="staff-mail-send">Send email</button>
+    <output id="staff-mail-result" aria-live="polite"></output>
+  </form>
+</article>
 </section>
 <section id="updates" class="view" aria-labelledby="updates-title" hidden>
  <div class="section-head"><div><div class="kicker">08 / COMMUNITY</div><h2 id="updates-title">News &amp; events</h2><p>Official CoolWips SMP website announcements and scheduled community events.</p></div></div>
