@@ -5,6 +5,32 @@ const allowedOrigins = new Set([
   "https://www.coolwip.xyz",
 ]);
 
+function defaultKeyFromEnvironment(
+  mapName: string,
+  singleName: string,
+  legacyName: string,
+): string | undefined {
+  const rawMap = Deno.env.get(mapName);
+  if (rawMap) {
+    try {
+      const keyMap: unknown = JSON.parse(rawMap);
+      if (
+        keyMap &&
+        typeof keyMap === "object" &&
+        "default" in keyMap &&
+        typeof keyMap.default === "string" &&
+        keyMap.default.length > 0
+      ) {
+        return keyMap.default;
+      }
+    } catch {
+      // Fall through to the single-key environment variables for older runtimes.
+    }
+  }
+
+  return Deno.env.get(singleName) ?? Deno.env.get(legacyName);
+}
+
 function json(body: unknown, status: number, origin: string): Response {
   return new Response(JSON.stringify(body), {
     status,
@@ -40,11 +66,19 @@ Deno.serve(async (request) => {
   if (request.method !== "POST") return json({ error: "Method not allowed." }, 405, origin);
 
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
-  const anonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? Deno.env.get("SUPABASE_PUBLISHABLE_KEY");
-  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  const publishableKey = defaultKeyFromEnvironment(
+    "SUPABASE_PUBLISHABLE_KEYS",
+    "SUPABASE_PUBLISHABLE_KEY",
+    "SUPABASE_ANON_KEY",
+  );
+  const secretKey = defaultKeyFromEnvironment(
+    "SUPABASE_SECRET_KEYS",
+    "SUPABASE_SECRET_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY",
+  );
   const ameluApiKey = Deno.env.get("AMELU_API_KEY");
   const mailboxId = Deno.env.get("AMELU_MAILBOX_ID");
-  if (!supabaseUrl || !anonKey || !serviceRoleKey || !ameluApiKey || !mailboxId) {
+  if (!supabaseUrl || !publishableKey || !secretKey || !ameluApiKey || !mailboxId) {
     return json({ error: "Staff email is not configured on the backend." }, 503, origin);
   }
 
@@ -52,13 +86,13 @@ Deno.serve(async (request) => {
   const bearer = authorization.match(/^Bearer\s+(.+)$/i)?.[1];
   if (!bearer) return json({ error: "Sign in with an approved staff account." }, 401, origin);
 
-  const authClient = createClient(supabaseUrl, anonKey, {
+  const authClient = createClient(supabaseUrl, publishableKey, {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
   });
   const { data: authData, error: authError } = await authClient.auth.getUser(bearer);
   if (authError || !authData.user) return json({ error: "Your session expired. Sign in again." }, 401, origin);
 
-  const admin = createClient(supabaseUrl, serviceRoleKey, {
+  const admin = createClient(supabaseUrl, secretKey, {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
   });
   const { data: member, error: memberError } = await admin
@@ -81,12 +115,12 @@ Deno.serve(async (request) => {
   const to = typeof data.to === "string" ? data.to.trim() : "";
   const subject = typeof data.subject === "string" ? data.subject.trim() : "";
   const textBody = typeof data.textBody === "string" ? data.textBody.trim() : "";
-  const emailPattern = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
+  const emailPattern = /^[^\\s@<>]+@[^\\s@<>]+\\.[^\\s@<>]+$/;
   if (!emailPattern.test(to) || to.length > 254) return json({ error: "Enter one valid recipient email address." }, 400, origin);
-  if (!subject || subject.length > 180 || /[\r\n\u0000-\u001f\u007f]/.test(subject)) {
+  if (!subject || subject.length > 180 || /[\\r\\n\\u0000-\\u001f\\u007f]/.test(subject)) {
     return json({ error: "Subject must be 1–180 characters on one line." }, 400, origin);
   }
-  if (!textBody || textBody.length > 10000 || textBody.includes("\u0000")) {
+  if (!textBody || textBody.length > 10000 || textBody.includes("\\u0000")) {
     return json({ error: "Message must be 1–10,000 characters." }, 400, origin);
   }
 
