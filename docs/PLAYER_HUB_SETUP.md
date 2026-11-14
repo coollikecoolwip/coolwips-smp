@@ -10,7 +10,7 @@ The public website stays static on GitHub Pages. Its private backend runs on the
 - The browser contains no server credentials. The API accepts requests only from `https://coolwip.xyz` and `https://www.coolwip.xyz`.
 - The client still calls the API through Supabase-compatible path names for compatibility; no Supabase service is required by this backend.
 
-Run the API on Windows with Node 24 from the `backend` folder. During first setup, keep it bound to `127.0.0.1:8787` and visit `http://127.0.0.1:8787/setup` on the server PC. This one-time local page creates the owner login `admin@coolwip.xyz`. Choose a unique password of at least 16 characters. There is no public sign-up.
+Run the API on Windows with Node 24 from the `backend` folder. During first setup, keep it bound to `127.0.0.1:48787` and visit `http://127.0.0.1:48787/setup` on the server PC. This one-time local page creates the owner login `admin@coolwip.xyz`. Choose a unique password of at least 16 characters. There is no public sign-up.
 
 The database is `backend/data/coolwips.sqlite`. Back it up securely. It holds staff password hashes, report tickets, sessions, and send limits; it does not store the Minecraft world or plugin files.
 
@@ -22,9 +22,7 @@ Store the Amelu API key in the same Windows user's Credential Manager by running
 
 ## Public routing
 
-The Oracle VM is the public entry point. After the backend and tunnel work locally, configure HTTPS on Oracle for `api.coolwip.xyz` and proxy only across WireGuard to the Windows peer. Allow the API port on Windows only from the Oracle tunnel address. Do not expose the API port directly to the internet.
-
-Do not update the API DNS record or switch production mail DNS until the reverse proxy and app have been tested.
+The Oracle VM is the public entry point at `129.80.8.78`. `api.coolwip.xyz` resolves to that address. Oracle Nginx terminates Let's Encrypt HTTPS and proxies to `10.66.66.2:48787` through WireGuard; the backend port itself is not exposed publicly. HTTP on port 80 redirects to HTTPS and supports certificate renewal. The public HTTPS `/healthz` endpoint has returned 200.
 
 ## Incoming mailboxes
 
