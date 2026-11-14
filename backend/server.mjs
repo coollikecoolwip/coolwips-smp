@@ -6,7 +6,7 @@ import { execFileSync } from 'node:child_process';
 import { DatabaseSync } from 'node:sqlite';
 
 const HOST = process.env.BACKEND_HOST || '127.0.0.1';
-const PORT = Number(process.env.BACKEND_PORT || 8787);
+const PORT = Number(process.env.BACKEND_PORT || 48787);
 const OWNER_EMAIL = (process.env.OWNER_EMAIL || 'admin@coolwip.xyz').trim().toLowerCase();
 const DB_FILE = resolve(process.env.BACKEND_DB || './data/coolwips.sqlite');
 const MAX_BODY = 16 * 1024;
