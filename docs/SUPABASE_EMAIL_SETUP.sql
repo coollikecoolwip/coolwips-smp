@@ -29,7 +29,7 @@ begin
     return false;
   end if;
 
-  perform pg_advisory_xact_lock(hashtext(p_user_id::text));
+  perform pg_advisory_xact_lock(hashtext(p_user_id::text)::bigint);
 
   if not exists (
     select 1 from public.staff_members s where s.user_id = p_user_id
