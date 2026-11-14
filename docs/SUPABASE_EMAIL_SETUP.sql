@@ -29,6 +29,8 @@ begin
     return false;
   end if;
 
+  -- Serialize quota checks so concurrent staff sends cannot exceed the site-wide cap.
+  perform pg_advisory_xact_lock(865425, 1);
   perform pg_advisory_xact_lock(hashtext(p_user_id::text)::bigint);
 
   if not exists (
