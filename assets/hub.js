@@ -8,7 +8,7 @@ const fmtNumber=n=>Number.isFinite(Number(n))?Number(n).toLocaleString('en-US'):
 const safeDate=v=>{if(!v)return 'Not supplied';const d=new Date(v);return Number.isFinite(d.getTime())?d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}):'Not supplied'};
 const el=(tag,klass,content)=>{const item=document.createElement(tag);if(klass)item.className=klass;if(content!==undefined)item.textContent=String(content);return item};
 function notice(message){const n=$('global-notice');n.textContent=message;n.hidden=false;clearTimeout(notice.timer);notice.timer=setTimeout(()=>n.hidden=true,4500)}
-function showTab(){const requested=location.hash.slice(1);const tab=tabs.includes(requested)?requested:'status';for(const t of tabs){const view=$(t);if(view)view.hidden=t!==tab}document.querySelectorAll('[data-tab]').forEach(a=>{const active=a.dataset.tab===tab;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});}
+function showTab(){const requested=location.hash.slice(1);if(requested==='staff'){location.replace('https://staff.coolwip.xyz/staff');return}const tab=tabs.includes(requested)?requested:'status';for(const t of tabs){const view=$(t);if(view)view.hidden=t!==tab}document.querySelectorAll('[data-tab]').forEach(a=>{const active=a.dataset.tab===tab;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});}
 window.addEventListener('hashchange',showTab);showTab();
 $('year').textContent=String(new Date().getFullYear());
 $('java-address').textContent=cfg.javaAddress;$('join-java').textContent=cfg.javaAddress;
