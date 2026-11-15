@@ -6,7 +6,7 @@ window.COOLWIPS_HUB = {
   bedrockAddress: "bedrock.coolwip.xyz",
   bedrockPort: 19132,
   bedrockConfirmed: true,
-  reportsEmail: "admin@coolwip.xyz", // Existing Amelu default mailbox; switch to reports@ after creating it.
+  selfHostedApi: "https://staff.coolwip.xyz", // Public report intake uses the private CoolWips backend.\n  reportsEmail: "admin@coolwip.xyz", // Existing Amelu default mailbox; switch to reports@ after creating it.
   statsUrl: "assets/data/players.json",
   marketUrl: "assets/data/market.json",
   updatesUrl: "assets/data/updates.json",
