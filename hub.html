@@ -99,12 +99,8 @@
  </div>
 </section>
 <section id="staff" class="view" aria-labelledby="staff-title" hidden>
- <div class="section-head"><div><div class="kicker">07 / MODERATION</div><h2 id="staff-title">Staff dashboard</h2><p>Private report review and ticket status updates. Authentication is separate from Minecraft and Amelu passwords.</p></div></div>
- <div class="grid two">
- <article class="panel" id="staff-login-panel"><h3>Staff sign in</h3><form id="staff-auth-form" class="form-stack"><label>Staff dashboard email<input type="email" id="staff-email" required autocomplete="username"></label><label>Password<input type="password" id="staff-password" required autocomplete="current-password"></label><button class="primary" type="submit">Sign in securely</button><output id="staff-auth-message" aria-live="polite"></output></form><p class="minor">Your staff dashboard requires Supabase Auth and verified staff permissions. This form never sends credentials to GitHub Pages.</p></article>
- <article class="panel"><h3>Staff tools</h3><p>View submitted tickets, set review status, add internal notes, and manage responses once the secure backend is connected.</p><p class="minor">Staff email is hosted separately by Amelu and is not stored on this site.</p><a class="action secondary" href="https://webmail.amelu.org/" target="_blank" rel="noopener noreferrer">Open Staff Email ↗</a></article>
- </div>
- <article class="panel" id="staff-tickets-panel" hidden><div class="panel-top"><h3>Assigned report queue</h3><button class="outline" id="staff-signout" type="button">Sign out</button></div><p id="staff-queue-status" aria-live="polite"></p><div class="ticket-grid" id="staff-ticket-list"></div></article>
+ <div class="section-head"><div><div class="kicker">07 / STAFF WORKSPACE</div><h2 id="staff-title">Staff dashboard</h2><p>Staff tools are available in one secure workspace, with access for approved CoolWips staff accounts.</p></div></div>
+ <article class="panel staff-workspace-card"><div class="edition">COOLWIPS CONTROL ROOM</div><h3>Your staff workspace</h3><p>Review player reports, check Minecraft players online, manage Discord bot calls, and open linked staff inboxes from one place.</p><a class="action primary" href="https://staff.coolwip.xyz/staff">Open secure staff workspace →</a><p class="minor">Sign in with your separate CoolWips staff account. Your Minecraft, Discord, and mailbox passwords are not used to sign in here.</p></article>
 </section>
 <section id="updates" class="view" aria-labelledby="updates-title" hidden>
  <div class="section-head"><div><div class="kicker">08 / COMMUNITY</div><h2 id="updates-title">News &amp; events</h2><p>Official CoolWips SMP website announcements and scheduled community events.</p></div></div>
