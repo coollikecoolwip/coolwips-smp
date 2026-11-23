@@ -3,7 +3,7 @@ window.COOLWIPS_HUB = {
   javaAddress: "play.coolwip.xyz",
   javaVersion: "26.2",
   // Public Bedrock custom hostname. Keep the port in sync with your Playit tunnel.
-  bedrockAddress: "bedrock.coolwip.xyz",
+  bedrockAddress: "coolwip.playit.plus",
   bedrockPort: 19132,
   bedrockConfirmed: true,
   selfHostedApi: "https://staff.coolwip.xyz", // Public report intake uses the private CoolWips backend.\n  reportsEmail: "admin@coolwip.xyz", // Existing Amelu default mailbox; switch to reports@ after creating it.

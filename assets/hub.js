@@ -1,6 +1,6 @@
 /* CoolWips SMP Player Hub - no secrets or private server details in this public file. */
 (()=>{'use strict';
-const cfg=Object.assign({javaAddress:'play.coolwip.xyz',javaVersion:'26.2',bedrockAddress:'bedrock.coolwip.xyz',bedrockPort:19132,bedrockConfirmed:true,statsUrl:'assets/data/players.json',marketUrl:'assets/data/market.json',updatesUrl:'assets/data/updates.json',supabaseUrl:'',supabasePublishableKey:''},window.COOLWIPS_HUB||{});
+const cfg=Object.assign({javaAddress:'play.coolwip.xyz',javaVersion:'26.2',bedrockAddress:'coolwip.playit.plus',bedrockPort:19132,bedrockConfirmed:true,statsUrl:'assets/data/players.json',marketUrl:'assets/data/market.json',updatesUrl:'assets/data/updates.json',supabaseUrl:'',supabasePublishableKey:''},window.COOLWIPS_HUB||{});
 const $=id=>document.getElementById(id);
 const tabs=['status','join','leaderboards','market','players','reports','staff','updates'];
 const model={players:[],market:[],updates:[],events:[],accessToken:null};
